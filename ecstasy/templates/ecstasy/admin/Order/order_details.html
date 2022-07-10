@@ -1,0 +1,84 @@
+{% extends 'ecstasy/admin/layouts/admin_master.html' %}
+
+{% load static %}
+
+{% block content %}
+
+<div class="container">
+
+    <div class="col-lg-12 text-center my-3">
+
+        <h3>{{object.name}}</h3>
+
+        <!-- <p>{{object.order_id}}</p> -->
+
+    </div>
+
+    <div class="row justify-content-center">
+
+        <!-- <div class="col-lg-6 col-md-12 col-sm-12">
+
+            <img class="img-fluid" src="{{ object.image.url }}" alt="Image For {{object.name}}">
+
+        </div> -->
+
+        <div class="col-lg-6 col-md-12 h-100 ">
+
+            <div class="card h-100 border-0 shadow-sm">
+
+                <div class="card-body h-100">
+
+                    <h5>Order Details</h5>
+
+                    <hr>
+
+                    <p><strong>Order Name:</strong> {{object.order_number}}</p>
+
+                    <p><strong>Customer Name:</strong> {{object.customer_id}}</p>
+
+                    <p><strong>Shipping Cost:</strong> {{object.shipping_cost}}</p>
+
+                    <p><strong>Total:</strong> {{order.total}}</p>
+
+                    <p><strong>Status:</strong> {{order.status}}</p>
+
+                    
+                    <a href="{% url 'update_order' order.id %}"
+                      class="btn btn-dark btn-sm">
+                        <i class="fa fa-edit"> </i>Edit Order
+                    </a>
+                    <a href="{% url 'delete_order' order.id %}"
+                        class="btn btn-danger btn-sm">
+                        <i class="fa fa-trash"></i> Delete Order 
+                   </a>
+
+        
+                </div>
+
+                
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- <div class="row my-5">
+
+        <div class="card">
+
+            <div class="card-body">
+
+                <h5>Description</h5>      
+                <hr>           
+                <p>{{object.description}}</p>
+
+            </div>
+
+        </div>
+
+    </div> -->
+
+</div>
+
+
+{% endblock %}

@@ -1,0 +1,298 @@
+/*=======================================================================
+7. Category Css
+=========================================================================*/
+.category-box-layout1 {
+    background-color: #ffffff;
+    margin-bottom: 3rem;
+    position: relative;
+  }
+  .category-box-layout1:after {
+    opacity: 0.8;
+    background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#111), to(transparent));
+    background-image: -webkit-linear-gradient(transparent, #111);
+    background-image: -moz-linear-gradient(transparent, #111), -moz-linear-gradient(transparent, #111);
+    background-image: -o-linear-gradient(transparent, #111), -o-linear-gradient(transparent, #111);
+    background-image: linear-gradient(transparent, #111), linear-gradient(transparent, #111);
+    content: "";
+    height: 80%;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    position: absolute;
+    width: 100%;
+    z-index: 1;
+    -webkit-transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    -ms-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+  }
+  .category-box-layout1 .item-figure {
+    margin-bottom: 0;
+    overflow: hidden;
+  }
+  .category-box-layout1 .item-figure img {
+    transform: scale(1);
+    -webkit-transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    -ms-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+  }
+  .category-box-layout1 .item-content {
+    bottom: 0;
+    left: 0;
+    z-index: 3;
+    position: absolute;
+    padding: 35px;
+  }
+  .category-box-layout1 .item-content .item-title {
+    font-weight: 700;
+    font-size: 26px;
+    margin-bottom: 5px;
+  }
+  .category-box-layout1 .item-content .item-title a {
+    color: #ffffff;
+    -webkit-transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    -ms-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+  }
+  .category-box-layout1 .item-content .item-title:hover a {
+    color: #ff4a52;
+  }
+  .category-box-layout1 .item-content .sub-title {
+    color: #cccccc;
+    font-size: 18px;
+    display: inline-block;
+    position: relative;
+    margin-bottom: 0;
+    padding-bottom: 15px;
+  }
+  .category-box-layout1 .item-content .sub-title:before {
+    position: absolute;
+    content: "";
+    height: 2px;
+    width: 100%;
+    background-color: #ff4a52;
+    bottom: 0;
+    left: 0;
+    z-index: 2;
+  }
+  .category-box-layout1:hover:after {
+    height: 100%;
+    opacity: 1;
+  }
+  .category-box-layout1:hover .item-figure img {
+    transform: scale(1.2);
+  }
+  /*=======================================================================
+  8. Login Page Css
+  =========================================================================*/
+  .login-box-layout1 {
+    background-color: #f2f2f2;
+    padding: 7rem 7rem 6.5rem;
+    margin-bottom: 3rem;
+  }
+  @media only screen and (max-width: 575px) {
+    .login-box-layout1 {
+      padding: 4rem 4rem 3.5rem;
+    }
+  }
+  .login-box-layout1 .login-form input.main-input-box {
+    height: 50px;
+    border-radius: 0;
+    border: none;
+    margin-bottom: 20px;
+    color: #111111;
+    font-weight: 500;
+    font-size: 15px;
+    width: 100%;
+    padding: 5px 15px;
+  }
+  .login-box-layout1 .login-form input.main-input-box:focus {
+    outline: none;
+  }
+  .login-box-layout1 .login-form .btn-area {
+    margin-top: 30px;
+    margin-bottom: 30px;
+  }
+  .login-box-layout1 .login-form .btn-area .btn-fill {
+    margin-right: 5px;
+    color: #ffffff;
+    padding: 13px 30px;
+    border-radius: 0;
+    font-weight: 500;
+    font-size: 18px;
+    display: inline-block;
+    border: none;
+    text-align: center;
+    margin-bottom: 5px;
+    cursor: pointer;
+    -webkit-transition: all 0.3s ease-out;
+    -moz-transition: all 0.3s ease-out;
+    -ms-transition: all 0.3s ease-out;
+    -o-transition: all 0.3s ease-out;
+    transition: all 0.3s ease-out;
+  }
+  .login-box-layout1 .login-form .btn-area .btn-fill i:before {
+    margin-left: 8px;
+    font-size: 12px;
+    font-weight: 600;
+  }
+  .login-box-layout1 .login-form .btn-area .btn-fill:focus {
+    outline: none;
+  }
+  .login-box-layout1 .login-form .btn-area .btn-fill.btn-primary {
+    background: #ff4a52;
+  }
+  .login-box-layout1 .login-form .btn-area .btn-fill.btn-primary:hover {
+    background: #e92731;
+  }
+  .login-box-layout1 .login-form .btn-area .btn-fill.btn-dark {
+    background: #111111;
+  }
+  .login-box-layout1 .login-form .btn-area .btn-fill.btn-dark:hover {
+    background: #e92731;
+  }
+  .login-box-layout1 .login-form .lost-password {
+    margin-bottom: 0;
+    margin-top: 0;
+  }
+  .login-box-layout1 .login-form .lost-password a {
+    color: #ff4a52;
+    font-weight: 500;
+  }
+  .login-box-layout1 .login-form .checkbox {
+    padding-left: 5px;
+  }
+  .login-box-layout1 .login-form .checkbox label {
+    display: inline-block;
+    position: relative;
+    padding-left: 20px;
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+  .login-box-layout1 .login-form .checkbox label:before {
+    content: "";
+    display: inline-block;
+    position: absolute;
+    width: 17px;
+    height: 17px;
+    top: 2px;
+    left: 0px;
+    margin-left: -5px;
+    border: 1px solid #cccccc;
+    border-radius: 3px;
+    background-color: #fff;
+    -webkit-transition: border 0.15s ease-in-out, color 0.15s ease-in-out;
+    -o-transition: border 0.15s ease-in-out, color 0.15s ease-in-out;
+    transition: border 0.15s ease-in-out, color 0.15s ease-in-out;
+  }
+  .login-box-layout1 .login-form .checkbox label:after {
+    display: inline-block;
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    left: 0;
+    top: 0;
+    margin-left: -20px;
+    padding-left: 3px;
+    padding-top: 1px;
+    font-size: 11px;
+    color: #555555;
+  }
+  .login-box-layout1 .login-form .checkbox input[type="checkbox"] {
+    display: none;
+  }
+  .login-box-layout1 .login-form .checkbox input[type="checkbox"]:focus + label::before {
+    outline: thin dotted;
+    outline: 5px auto -webkit-focus-ring-color;
+    outline-offset: -2px;
+  }
+  .login-box-layout1 .login-form .checkbox input[type="checkbox"]:checked + label::after {
+    font-family: 'Font Awesome 5 Free';
+    content: "\f00c";
+    font-weight: 900;
+  }
+  .login-box-layout1 .login-form .checkbox input[type="checkbox"]:disabled + label {
+    opacity: 0.65;
+  }
+  .login-box-layout1 .login-form .checkbox input[type="checkbox"]:disabled + label::before {
+    background-color: #eeeeee;
+    cursor: not-allowed;
+  }
+  .login-box-layout1 .login-form .checkbox.checkbox-circle label::before {
+    border-radius: 50%;
+  }
+  .login-box-layout1 .login-form .checkbox-primary input[type="checkbox"]:checked + label::before {
+    background-color: #ff4a52;
+    border-color: #ff4a52;
+  }
+  .login-box-layout1 .login-form .checkbox-primary input[type="checkbox"]:checked + label::after {
+    color: #ffffff;
+    left: 15px;
+    top: 1px;
+  }
+  .login-box-layout1 .login-box-social {
+    margin-top: 10px;
+  }
+  .login-box-layout1 .login-box-social ul li {
+    display: inline-block;
+    margin-right: 1px;
+    margin-bottom: 4px;
+    font-size: 18px;
+  }
+  .login-box-layout1 .login-box-social ul li a {
+    width: 54px;
+    height: 50px;
+    border-radius: 2px;
+    color: #ffffff;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    border: 1px solid;
+    -webkit-transition: all 0.3s ease-out;
+    -moz-transition: all 0.3s ease-out;
+    -ms-transition: all 0.3s ease-out;
+    -o-transition: all 0.3s ease-out;
+    transition: all 0.3s ease-out;
+  }
+  .login-box-layout1 .login-box-social ul li .facebook {
+    background-color: #445099;
+    border-color: #445099;
+  }
+  .login-box-layout1 .login-box-social ul li .twitter {
+    background-color: #40c4ff;
+    border-color: #40c4ff;
+  }
+  .login-box-layout1 .login-box-social ul li .linkedin {
+    background-color: #175ac2;
+    border-color: #175ac2;
+  }
+  .login-box-layout1 .login-box-social ul li .google {
+    background-color: #d50000;
+    border-color: #d50000;
+  }
+  .login-box-layout1 .login-box-social ul li:hover a {
+    background-color: transparent;
+  }
+  .login-box-layout1 .login-box-social ul li:hover .facebook {
+    color: #445099;
+  }
+  .login-box-layout1 .login-box-social ul li:hover .twitter {
+    color: #40c4ff;
+  }
+  .login-box-layout1 .login-box-social ul li:hover .linkedin {
+    color: #175ac2;
+  }
+  .login-box-layout1 .login-box-social ul li:hover .google {
+    color: #d50000;
+  }

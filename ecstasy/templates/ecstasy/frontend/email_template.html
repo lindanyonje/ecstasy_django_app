@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+    
+{% load static %}
+
+{% load widget_tweaks %}
+
+<html>
+
+<head>
+
+
+    <meta charset="UTF-8">
+    <meta name= "viewpoint" content= "width=device-width, initial-scale=1.0">
+    <title>{{title}}</title>
+
+</head>
+
+<body>
+    
+    <h1>{{Content}}</h1>
+
+    <h4 class="card-title"> <b>Order Confirmed!</b></h4>
+
+   
+    <!-- <p>You can use   to track it </p>
+    <p>Thank you for choosing Bura</p>  -->
+
+
+    <div class="container ">
+
+        <div class="col-lg-8 text-center my-3">
+    
+            <div class ="card"  >
+    
+                <div class= "card-body">
+    
+            
+                    <div class="container">
+                    
+                    
+                        <div class="row justify-content-center my-5">
+                    
+                            <div class="col-lg-8">
+
+                                <p>Your order hass been made successfully.</p> 
+                    
+                                
+                                <p> <b>Hello {{ user.get_username }},</b>Great news. Your parcel on it's way! </p> <img src="https://img.icons8.com/emoji/48/000000/open-hands-emoji.png"/>
+
+                                <h6 class="card-title font-weight-bold"> Order Number: {{order.order_number}} </h6>
+                                
+                                <hr>
+            
+                            </div>
+
+                            <h3>It's in the bag....</h3>
+
+                            <hr>
+            
+                            
+                        </div>
+
+            
+                        <div  class="row justify-content-center" id= "cart_{{object.id}}" >
+
+                            
+            
+                            {% for object in order.carts.all %}
+            
+                            <div class="col-lg-4" >
+            
+                                <img src="{{object.recipe_id.image.url}}" height="50px" width="50px" class="img-fluid">
+            
+                            </div>
+            
+                            <div class="col-lg-4">
+            
+                                <p>{{object.recipe_id.name}}</p> 
+                                <P>Quantity: {{object.quantity}}</P>
+                                
+                            </div>
+                           
+                            <div class="col-lg-4">
+            
+                             <p  id="row_cost_{{object.id}}" class="cost_per_row" data-product-cost="{{object.recipe_id.cost}}">KES {{object.recipe_id.cost}}</p> 
+            
+                             
+                            </div>
+                            <hr>
+            
+                            {% endfor %}
+                    
+                        </div>
+    
+                        <hr>
+            
+                        <div class= "row justify-content-center">
+            
+                            <div class="col-lg-4">
+            
+                                <h5 class="font-weight-bold">Summary</h5>
+                                <hr>
+            
+                                <h6>Total: {{order.total}}</h6>
+                                <h6>Discount: 0.0</h6>
+                                <h6>Value Added Tax(VAT): 0.0</h6>
+            
+                                <hr>
+                                <h4 class="font-weight-bold mb-5" id="grand_total" class="grand_total">Grand Total: {{order.total}}</h4>
+                                <hr>
+            
+                            </div>
+                                
+            
+                        </div>
+    
+                        <p> <b> Thank you for shopping with us</b></p>
+    
+                        <h6>KE Team </h6>
+                    
+                    
+                    </div>
+    
+                </div>
+            </div>
+    
+</body>
+
+</html>

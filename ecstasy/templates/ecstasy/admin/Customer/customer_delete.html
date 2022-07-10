@@ -1,0 +1,73 @@
+
+{% extends 'ecstasy/admin/layouts/admin_master.html' %}
+
+
+{% block content %}
+
+
+<!-- 
+<div class= "row">
+    <div class = "col-md-6">
+        <div class= " card card-body">
+
+            <p>Are you sure you want to delete "{{item}}" ?</p>
+
+            <form action="{% url 'delete_customer' item.id %}" method="POST">
+
+                {% csrf_token %}
+
+                <a class= "btn btn-warning" href="{% url 'customer' %}">Cancel</a>
+
+                <input class= "btn btn-danger" type= "submit" name= "Confirm">
+
+            </form>
+
+        </div>
+    </div>
+</div> -->
+
+
+
+<div class="text-center">
+	<!-- Button HTML (to Trigger Modal) -->
+	<a href="#myModal" class="trigger-btn" data-toggle="modal">Click to  Confirm Delete</a>
+</div>
+  
+
+
+<form action="{% url 'delete_customer' item.id %}" method="POST">
+         <!-- @method('POST') -->
+            <!-- @csrf -->
+        {% csrf_token %}
+            
+            
+        <!-- Modal HTML -->
+        <div id="myModal" class="modal fade">
+            <div class="modal-dialog modal-confirm">
+                <div class="modal-content">
+                    <div class="modal-header flex-column">
+                        <div class="icon-box">
+                            <i class="material-icons">&#xE5CD;</i>
+                        </div>						
+                        <h4 class="modal-title w-100">Are you sure you want to delete "{{item}}" ?</h4>	
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    </div>
+                    <div class="modal-body">
+                        <p>Do you really want to delete these records? This process cannot be undone.</p>
+                    </div>
+                    <div class="modal-footer justify-content-center">
+                        <a class= "btn btn-warning" href="{% url 'customer' %}">Cancel</a>
+                        <a class= "btn btn-danger" href="{% url 'delete_customer' item.id %}">Delete</a>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>   
+        
+</form>
+
+
+
+{% endblock content %}
+
+

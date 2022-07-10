@@ -1,0 +1,14 @@
+{% load static %}
+
+<a href="{% url 'category_recipes' category.id %}">
+  
+    <div class="card service-card card-inverse bg-dark py-2 text-light">
+
+      <div class="card-block">
+        <span class="fa fa-ravelry fa-2x my-2"></span>
+        <h5 class="card-title">{{ category.name }}</h5>
+      </div>
+
+    </div>
+
+  </a>

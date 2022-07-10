@@ -1,0 +1,62 @@
+
+{% load static %}
+
+<a href= "{% url 'recipe_details' recipe.id %}" style="text-decoration: none;">
+    <div class="product-card bg-light text-dark">
+		<div class="product-badge">Hot</div>
+		<div class="product-tumb">
+			<img src="{{recipe.image.url}}" alt="">
+		</div>
+		<div class="product-details ">
+			<span class="product-category">{{recipe.category_id}}</span>
+			<h4 class="text-dark"><a href= "{% url 'recipe_details' recipe.id %}"  >{{recipe.name}}</a></h4>
+			<p class="text-dark">{{recipe.description|truncatewords:10}}</p>
+			<div class="product-bottom-details ">
+				
+				<p>
+					{% for index in rating %}
+		
+					★
+		
+					{% endfor %}
+		
+				 </p>
+
+				<div class="product-price">Kshs {{recipe.cost}}</div>
+				
+				<div class="customer-feedback">{{customer.feedback}}</div>
+				
+				<div class="product-links">
+
+					<a href="javascript:void(0)" data-product="{{product.id}}" class="addWishlist"><i class="fa fa-heart"></i></a>
+					<a href="javascript:void(0)" data-product="{{product.id}}" class="addCart"><i class="fa fa-shopping-cart"></i></a>
+					
+				</div>
+
+			</div>
+
+		</div>
+		
+	</div>
+
+
+</a>
+
+
+<script>
+
+    $(".rating").on('click', function(e){
+    let value = $(this).data('value');
+    $.ajax({
+        url: "rating",
+        type: 'POST',
+        data: {'rating': value},
+        success: function (d){
+        // some processing
+        }
+    })
+    });
+
+</script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>

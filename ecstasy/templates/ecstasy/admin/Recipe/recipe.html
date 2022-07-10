@@ -1,0 +1,175 @@
+{% extends 'ecstasy/admin/layouts/admin_master.html' %}
+
+{% block content %}
+
+<div class= "container ">
+
+    <div class="row  justify-content-end my-5">
+        <div class="row my-5">
+            <button class="btn btn-dark ml-auto" data-toggle="modal"
+                data-target="#paymentModal">
+                <i class ="fa fa-plus" aria-hidden="true"></i> New Recipe
+            </button>
+        </div>  
+                
+    </div>
+
+    
+
+
+
+    <div class="row justify-content-center my-5">
+
+        <div class="col-lg-12 ">
+
+
+            <div class="card">
+                
+                <div class="card-body">
+
+                    <div class="d-flex flex-row mb-3">
+                        <h4 class="card-title">All Recipes</h4>
+                    </div>
+
+                    <table  class="table table-hover table-responsive-sm table-striped myTable">
+
+                        <thead>
+                            <tr>
+
+                                <th>Category</th>
+                                <th>Description</th>
+                                <th>Image</th>
+                                <th>Rating</th>
+                                <th>Created_at</th>
+                                <th>Update</th>
+                                <th>Delete</th>
+                                
+
+                            </tr>
+                        </thead>
+
+                        
+
+                       
+
+                        <tbody>
+
+                            {% for recipe in recipe %}
+
+                            <tr>
+
+                                <td>{{recipe.category}}</td>
+                                <td>{{recipe.description}}</td>
+                                <td>{{recipe.image}}</td>
+                                <td>{{recipe.rating}}</td>
+                                <td>{{recipe.created_at}}</td>
+
+                                <td><a class="btn btn-sm btn-outline-info"  href="{% url 'update_recipe' recipe.id %}"><i class="fa fa-pencil" aria-hidden="true"></i>Update </a></td>
+                                <td><a class="btn btn-sm btn-outline-danger" href="{% url 'delete_recipe' recipe.id %}"><i class="fa fa-trash" aria-hidden="true"></i>Delete</a></td>
+
+                               
+                                
+                            </tr>
+
+                            {% endfor %}
+
+
+                        </tbody>
+
+                            
+                        
+                        
+                       
+
+                    </table>
+
+                </div>
+            </div>
+
+        
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
+<!-- Modals -->
+<div class="modal fade" id="paymentModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title title" id="exampleModalLabel">New Recipe</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <form method="post" action="" enctype="multipart/form-data">
+                <!-- @method('POST') -->
+                {% csrf_token %}
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label>Category</label>
+                        <select class="form-control input-sm" name="category" required>
+                            <option value="Breakfast/Brunch">Breakfast/Brunch</option>
+                            <option value="Main Dishes">Main Dishes</option>
+                            <option value="Salads">Salads</option>
+                            <option value="Meat">Meat</option>
+                            <option value="Drinks">Drinks</option>
+                            <option value="Appetizers">Appetizers</option>
+                            <option value="Desserts">Desserts</option>
+                            <option value="AirFryer">AirFryer</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Name of Recipe </label>
+                        <input type="text" class="form-control" placeholder="Recipe" name="name" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Enter the description </label>
+                        <input type="text" class="form-control" placeholder="Description" name="description" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="img">Select image:</label>
+                        <input type="file" class="form-control" id="img" name="img" accept="image/*" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Rating</label>
+                        <select class="form-control input-sm" name="rating" placeholder="rating">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            
+                        </select>
+                    </div>
+                    
+                </div>
+                <div class="modal-footer">
+<!--                        <button type="button" class="btn btn-outline-primary" data-dismiss="modal"><i class="fa fa-times mr-2"></i>Close</button>--}} -->
+                    <button type="submit" class="btn btn-dark"><i class="fa fa-plus-circle mr-2"></i>Save</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+
+
+{% endblock %}
+
+
+('Breakfast/Brunch', 'Breakfast/Brunch'),
+('Main Dishes', 'Main Dishes'),
+('Salads','Salads'),
+('Soup', 'Soup'),
+('Meat', 'Meat'),
+('Drinks', 'Drinks'),
+('Appetizers', 'Appetizers'),
+('Desserts', 'Desserts'),
+('AirFryer', 'AirFryer'),

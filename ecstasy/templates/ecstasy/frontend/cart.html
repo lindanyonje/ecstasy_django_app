@@ -1,0 +1,289 @@
+{% extends 'ecstasy/frontend/layouts/master.html' %}
+
+{% load static %}
+
+{% block content %}
+
+<div class="container">
+
+
+
+    <div class="row justify-content-center my-5">
+
+        <div class="col-lg-8">
+
+            <div class="card">
+
+                <div class="card-header">
+                    <h4 class="card-title">Cart</h4>
+        
+                </div>
+    
+                <div class="card-body">
+    
+                    <!--This is where we add our table-->
+                    <!--Table begins-->
+    
+                    <table class="table table-striped table-hover">
+    
+                        <thead>
+                            <tr>
+                                <th>Item</th>
+                                <th>Product </th>                          
+                                <th>Quantity</th>
+                                <th>Price</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            {% for object in cart %}
+                               <tr id="cart_{{object.id}}" class="tr">
+                                   
+                                   <td>
+
+                                    <img src="{{object.recipe_id.image.url}}" height="50px" width="50px" class="img-fluid">
+
+                                   </td>
+                                   <td>{{object.recipe_id.name}}</td>
+                                    <td>
+
+                                            <button class="btn btn-outline-danger border-0 btn-sm btnChanged" onclick="minusCartQuantity('{{object.id}}')"><i class="fa fa-minus"></i></button>
+
+                                            <input  class="selected_quantity" name="productQty" id="cartQuantity_{{object.id}}" value="{{object.quantity}}" min="1" class="w-25">
+
+                                            <button class="btn btn-light btn-sm btnChanged" onclick="addCartQuantity('{{object.id}}')"><i class="fa fa-plus"></i></button> 
+
+                                    </td>
+                                   <td>KES </td><td  id="row_cost_{{object.id}}" class="cost_per_row" data-product-cost="{{object.product_id.cost}}">{{object.recipe_id.cost}}</td>
+                                               
+                                   <td>                                    
+                                        <button  class="btn btn-outline-dark btn-sm cartToWishlist" data-id="{{object.id}}">
+                                                    
+                                            <i class="fa fa-heart" aria-hidden="true"></i>
+
+                                        </button>
+                                    
+                                        <button class="btn btn-outline-danger btn-sm deleteCart" data-id="{{object.id}}">
+                                            <i class="fa fa-trash"></i>
+                                        </button>   
+                                   </td>  
+                               </tr>
+
+                            {% endfor %} 
+
+                        </tbody>
+    
+                    </table>
+    
+    
+                    <!--Table ends-->
+    
+                </div>
+            </div>
+    
+
+        </div>
+
+        <div class="col-lg-4">
+            <div class="card">
+
+                <div class="card-body">
+
+                    <h5 class="font-weight-bold">Summary</h5>
+                    <hr>
+
+                    <h6>Total: 0.0</h6>
+                    <h6>Discount: 0.0</h6>
+                    <h6>Value Added Tax(VAT): 0.0</h6>
+
+                    <hr>
+                    <h4 class="font-weight-bold mb-5" id="grand_total" class="grand_total">Grand Total: 0.0</h4>
+
+                     <div class="btn-group">
+                        <button type="button" class="btn btn-light">CONTINUE SHOPPING</button>
+                       
+                      </div>
+
+                      <button onclick="checkout()" class="btn btn-success btn-sm">
+                        PROCEED TO CHECK OUT
+                      </button>
+                      
+                      
+                </div>
+                
+                </div>
+            </div>
+        </div>
+
+        
+    </div>
+
+
+
+{% endblock %}
+
+{% block 'scripts' %}
+
+<script src="{% static 'js/notiflix.js' %}"></script>
+
+<script>
+
+    var cart_total = 0;
+   
+    $(document).ready(function(){
+    
+
+    $.ajaxSetup({
+        headers:{
+            'X-CSRFToken': $('meta[name="csrf-token"]').attr('content')
+        }
+    });
+
+    grand_total();
+    });
+
+    function checkout(){
+
+        window.location.href = "/checkout/details/"+cart_total
+
+       
+    }
+
+   
+
+    $(".deleteCart").click(function(){
+
+
+    let cart_id =$(this).data('id');
+
+
+    $.ajax({
+            type: "POST",
+            url: "{% url 'ajax_delete_cart' %}",
+            dataType: "json",
+            data:{
+                'cart_id':cart_id,
+                
+            },
+            success:function(data){
+            //     Remove the category from html and show success
+                Notiflix.Notify.Success('Cart deleted successfully');
+                cart_row = "#cart_"+ cart_id;
+                $(cart_row).remove();
+
+            },
+            error: function(data){
+                
+                console.log(data);
+                Notiflix.Notify.Failure('Something went wrong.');
+
+            }
+
+        });
+        
+    });
+
+
+    $(".cartToWishlist").click(function(){
+
+    let id = $(this).data("id");
+
+    console.log("Here")
+
+
+    $.ajax({
+        type: "POST",
+        url: "{% url 'cart_wishlist' %}",
+        dataType: "json",
+        data:{
+            'id':id,
+        },
+        success:function(data){
+        //     Remove the product from cart to Wishlist and show success
+        Notiflix.Notify.Success('Product added to wishlist');
+
+        setTimeout(function(){ 
+            window.location.reload()
+            }, 3000);
+
+
+        },
+        error: function(data){
+            
+            console.log(data);
+            Notiflix.Notify.Failure('Something went wrong.');
+
+        }
+
+    });
+    
+    });
+
+
+    $(document).on('ready', function(){
+    
+    $('.plusminus').numberPicker();
+    
+    //add dynamically:
+    $('<div class="plusminus horiz"><button></button><input type="number" name="qty" value="1" min="1" max="5"><button></button></div>').numberPicker().appendTo('body');
+    
+    });
+
+    function addCartQuantity(id){
+
+        let input = "#cartQuantity_"+id;
+        let current_val = $(input).val();
+        let row = "#row_cost_"+id;
+        let row_cost = $(row).data('recipe-cost');
+
+        let table_row = "#cart_"+id;
+        
+        console.log(row_cost);
+        current_val = parseInt(current_val) +1;
+        $(input).val(current_val);
+        
+        var totalprice= current_val * row_cost;
+
+
+        
+       
+        $(row).html("KES "+totalprice)
+
+        Notiflix.Notify.Success('Cart quantity added');
+
+    }
+
+    function minusCartQuantity(id){
+
+    let input = "#cartQuantity_"+id;
+    let current_val = $(input).val();
+    let row = "#row_cost_"+id;
+    let row_cost = $(row).data('recipe-cost');
+    console.log(current_val);
+    if(parseInt(current_val) > 1 ){
+        current_val = parseInt(current_val) - 1;
+        $(input).val(current_val);
+
+        var totalprice= current_val * row_cost;
+        $(row).html("KES "+totalprice)
+
+        Notiflix.Notify.Success('Cart quantity deducted');
+    }
+
+    }
+
+    function grand_total(){
+            var sum = 0;
+            console.log("Here")
+            $(".cost_per_row").each(function(){
+                console.log($(this).html())
+                sum += parseFloat($(this).html());
+            });
+            console.log(sum)
+            $('#grand_total').html("KES "+sum);
+            cart_total = sum;
+         }
+
+</script>
+{% endblock %}

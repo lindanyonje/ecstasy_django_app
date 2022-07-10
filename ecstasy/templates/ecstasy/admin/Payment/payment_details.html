@@ -1,0 +1,77 @@
+{% extends 'ecstasy/admin/layouts/admin_master.html' %}
+
+
+{% load static %}
+
+{% block content %}
+
+<div class="container">
+
+    <div class="col-lg-12 text-center my-3">
+
+        <h3>{{object.name}}</h3>
+
+        <!-- <p>{{object.order_id}}</p> -->
+
+    </div>
+
+    <div class="row justify-content-center">
+
+        <div class="col-lg-6 col-md-12 h-100 ">
+
+            <div class="card h-100 border-0 shadow-sm">
+
+                <div class="card-body h-100">
+
+                    <h5>Payment Details</h5>
+
+                    <hr>
+
+                    <p><strong>Order id:</strong> {{object.order_id}}</p>
+
+                    <p><strong>Amount:</strong> {{object.amount}}</p>
+
+                    <p><strong>Description:</strong> {{payment.description}}</p>
+
+                    <p><strong>invoice_number:</strong> {{object.invoice_number}}</p>
+
+                    
+                    <a href="{% url 'payment_update' object.id %}"
+                                        class="btn btn-dark btn-sm">
+                                         <i class="fa fa-edit"> Edit Payment</i>
+                                       </a>
+                                       <a href="{% url 'Payment_delete' object.id %}"
+                                         class="btn btn-danger btn-sm">
+                                         <i class="fa fa-trash"> Delete Payment </i>
+                                    </a>
+
+        
+                </div>
+
+                
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="row my-5">
+
+        <div class="card">
+
+            <div class="card-body">
+
+                <h5>Description</h5>      
+                <hr>           
+                <p>{{object.description}}</p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+{% endblock %}

@@ -1,0 +1,141 @@
+ <div class="navigation mt-5">
+
+
+
+
+            <!-- <div class="sidebar-header py-5 bg-light text-info">
+                <h3 class="text-center mb-0">
+                    <a href="/" class="font-weight-bold ">KITCHEN ECSTASY</a>
+                </h3>
+            </div> -->
+            <ul>
+                <li>
+                    <a href="#">
+                       
+                        <span class="title">KITCHEN ECSTASY</span>
+                    </a>
+                </li>
+
+              
+
+                <li class="{% if 'dashboard' in request.path %} active {% endif %}">
+                    <a href="{% url 'dashboard' %}">
+                        <span class="icon">
+                            <ion-icon name="speedometer-outline"></ion-icon>
+                        </span>
+                        <span class="title">Dashboard</span>
+                    </a>
+                </li>
+
+
+                <li class="{% if 'messages' in request.path %} active {% endif %}">
+                    <a href="{% url 'inquiry' %}">
+                        <span class="icon">
+                            <ion-icon name="mail-outline"></ion-icon>
+                        </span>
+                        <span class="title">Inquiry</span>
+                    </a>
+                </li>
+
+
+
+                <li class="{% if 'recipe' in request.path %} active {% endif %}">
+                    <a href="{% url 'recipe' %}">
+                        <span class="icon">
+                            <ion-icon name="fast-food-outline"></ion-icon>
+                        </span>
+                        <span class="title">Recipes</span>
+                    </a>
+                </li>
+        
+                
+                 
+
+                <li class="{% if 'customer' in request.path %} active {% endif %}">
+                    <a href="{% url 'customer' %}">
+                        <span class="icon">
+                            <ion-icon name="people-outline"></ion-icon>
+                        </span>
+                        <span class="title">Customers</span>
+                    </a>
+                </li>
+        
+
+                <li class="{% if 'payment' in request.path %} active {% endif %}">
+                    <a href="{% url 'payment' %}">
+                        <span class="icon">
+                            <ion-icon name="cash-outline"></ion-icon>
+                        </span>
+                        <span class="title">Payments</span>
+                    </a>
+                </li>
+        
+              
+                <li class="{% if 'offer_list' in request.path %} active {% endif %}">
+                    <a href="{% url 'offer_list' %}">
+                        <span class="icon">
+                            <ion-icon name="analytics-outline"></ion-icon>
+                        </span>
+                        <span class="title">Offers</span>
+                    </a>
+                </li>
+
+                <li class="{% if 'orders' in request.path %} active {% endif %}">
+                    <a href="{% url 'order_list'  %}">
+                        <span class="icon">
+                            <ion-icon name="bar-chart-outline"></ion-icon>
+                        </span>
+                        <span class="title">Orders</span>
+                    </a>
+                </li>
+
+               
+                <li class="{% if 'review' in request.path %} active {% endif %}">
+                    <a href="{% url 'review' %}">
+                        <span class="icon">
+                            <ion-icon name="people-circle-outline"></ion-icon>
+                        </span>
+                        <span class="title">Reviews</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#">
+                        <span class="icon">
+                            <ion-icon name="help-outline"></ion-icon>
+                        </span>
+                        <span class="title">Help</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#">
+                        <span class="icon">
+                            <ion-icon name="settings-outline"></ion-icon>
+                        </span>
+                        <span class="title">Settings</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#">
+                        <span class="icon">
+                            <ion-icon name="lock-closed-outline"></ion-icon>
+                        </span>
+                        <span class="title">Password</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#">
+                        <span class="icon">
+                            <ion-icon name="log-out-outline"></ion-icon>
+                        </span>
+                        <span class="title">Sign Out</span>
+                    </a>
+                </li>
+            </ul>
+
+
+</div>
+

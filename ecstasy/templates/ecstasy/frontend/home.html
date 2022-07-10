@@ -1,0 +1,1268 @@
+{% extends 'ecstasy/frontend/layouts/master.html' %}
+
+
+{% load static %}
+
+
+{% block css %}
+
+<style>
+  .block-list{
+    list-style: outside none none;
+    margin: 0;
+    padding: 0;
+
+
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    padding-inline-start: 40px;
+
+  }
+</style>
+
+{% endblock css %}
+
+
+{% block content %}
+
+<div class="container">
+
+  <div class="row justify-content-center mt-">
+
+
+    <section class="ranna-slider-area">
+
+      
+
+      <div class="owl-item" style="width:1170px ; margin: 5px">
+
+        <!-- <div class="ranna-slider-content-layout1">
+          <figure class="item-figure">
+            <a href=""><img src="https://radiustheme.com/demo/html/ranna/ranna/img/slider/slide1-1.jpg" alt="product"></a>
+          </figure>
+        </div> -->
+
+        <div class="col-lg-12">
+
+          <div class="card">
+
+            <img class="card-img" src="https://radiustheme.com/demo/html/ranna/ranna/img/slider/slide1-1.jpg" alt="Card image">
+            <div class="card-img-overlay">
+  
+              <div class="item-content text-center text-dark" >
+                <span class="sub-title">SALAD</span>
+                <h2 class="item-title ">
+                  <a href="#">Italiano Salad Mixed</a>
+                </h2>
+      
+      
+                <form id="" action="" method="POST">
+      
+                  
+                  {% csrf_token %}
+      
+                 
+                  <!-- Rating Stars Box -->
+                 
+                  <div class='rating-stars text-center' required>
+                    <ul id='stars'>
+                      <li class='star' title='Poor' data-value='1'>
+                        <i class='fa fa-star fa-fw'></i>
+                      </li>
+                      <li class='star' title='Fair' data-value='2'>
+                        <i class='fa fa-star fa-fw'></i>
+                      </li>
+                      <li class='star' title='Good' data-value='3'>
+                        <i class='fa fa-star fa-fw'></i>
+                      </li>
+                      <li class='star' title='Excellent' data-value='4'>
+                        <i class='fa fa-star fa-fw'></i>
+                      </li>
+                      <li class='star' title='WOW!!!' data-value='5'>
+                        <i class='fa fa-star fa-fw'></i>
+                      </li>
+                    </ul>
+                  </div>
+      
+                </form>
+      
+      
+                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.<br>
+                  Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,<br>
+                  when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+                </p>
+      
+      
+                <ul class="entry-meta" id="stats">
+                  <li>
+                    <a href="">
+                      <i class="fa fa-clock-o" aria-hidden="true"></i>
+      
+                      "15 Mins"
+                    </a>
+                  </li>
+                  <li>
+                    <a href="">
+                      <i class="fa fa-user" aria-hidden="true"></i>
+                      by
+                      <span>Linda Nyonje</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="">
+                      <i class="fa fa-heart-o" aria-hidden="true"></i>
+                      <span>02</span>
+                    </a>
+                  </li>
+                 </ul>
+                
+      
+              </div>
+  
+            </div>
+          </div>
+
+        </div>
+
+      
+        
+      </div> 
+
+      
+            
+    </section> 
+       
+
+    <h3 class="text-center mt-4"> Featured Recipes</h3>
+
+    <div class="row">
+
+      <div class="col-lg-4 col-md-6 col-sm-12">
+        <div class="product-box-layout1">
+          <figure class="item-figure">
+            <a href=""><img src="https://radiustheme.com/demo/html/ranna/ranna/img/product/product1.jpg" alt="BreakFast"></a>
+          </figure>
+          <div class="item-content">
+            <span class="sub-title">PASTA</span>
+            <h2 class="item-title">
+              <a href="#">Porcini Mushroom Recipe</a>
+            </h2>
+
+
+            <form id="" action="" method="POST">
+
+              
+              {% csrf_token %}
+
+             
+              <!-- Rating Stars Box -->
+             
+              <div class='rating-stars text-center' required>
+                <ul id='stars'>
+                  <li class='star' title='Poor' data-value='1'>
+                    <i class='fa fa-star fa-fw'></i>
+                  </li>
+                  <li class='star' title='Fair' data-value='2'>
+                    <i class='fa fa-star fa-fw'></i>
+                  </li>
+                  <li class='star' title='Good' data-value='3'>
+                    <i class='fa fa-star fa-fw'></i>
+                  </li>
+                  <li class='star' title='Excellent' data-value='4'>
+                    <i class='fa fa-star fa-fw'></i>
+                  </li>
+                  <li class='star' title='WOW!!!' data-value='5'>
+                    <i class='fa fa-star fa-fw'></i>
+                  </li>
+                </ul>
+              </div>
+
+            </form>
+
+
+            <ul class="entry-meta" id="stats">
+              <li>
+                <a href="">
+                  <i class="fa fa-clock-o" aria-hidden="true"></i>
+
+                  "15 Mins"
+                </a>
+              </li>
+              <li>
+                <a href="">
+                  <i class="fa fa-user" aria-hidden="true"></i>
+                  by
+                  <span>Linda Nyonje</span>
+                </a>
+              </li>
+              <li>
+                <a href="">
+                  <i class="fa fa-heart-o" aria-hidden="true"></i>
+                  <span>02</span>
+                </a>
+              </li>
+             </ul>
+            
+
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-4 col-md-6 col-sm-12">
+        <div class="product-box-layout1">
+          <figure class="item-figure">
+            <a href=""><img src="https://radiustheme.com/demo/html/ranna/ranna/img/product/product2.jpg" alt="Desert"></a>
+          </figure>
+          <div class="item-content">
+            <span class="sub-title">DESERT</span>
+            <h2 class="item-title">
+              <a href="#">Pumpkin Cheesecake With GingersnapCrust</a>
+              
+            </h2>
+
+
+            <form id="" action="" method="POST">
+
+              
+              {% csrf_token %}
+
+             
+              <!-- Rating Stars Box -->
+             
+              <div class='rating-stars text-center' required>
+                <ul id='stars'>
+                  <li class='star' title='Poor' data-value='1'>
+                    <i class='fa fa-star fa-fw'></i>
+                  </li>
+                  <li class='star' title='Fair' data-value='2'>
+                    <i class='fa fa-star fa-fw'></i>
+                  </li>
+                  <li class='star' title='Good' data-value='3'>
+                    <i class='fa fa-star fa-fw'></i>
+                  </li>
+                  <li class='star' title='Excellent' data-value='4'>
+                    <i class='fa fa-star fa-fw'></i>
+                  </li>
+                  <li class='star' title='WOW!!!' data-value='5'>
+                    <i class='fa fa-star fa-fw'></i>
+                  </li>
+                </ul>
+              </div>
+
+            </form>
+
+
+            <ul class="entry-meta" id="stats">
+              <li>
+                <a href="">
+                  <i class="fa fa-clock-o" aria-hidden="true"></i>
+
+                  "15 Mins"
+                </a>
+              </li>
+              <li>
+                <a href="">
+                  <i class="fa fa-user" aria-hidden="true"></i>
+                  by
+                  <span>Linda Nyonje</span>
+                </a>
+              </li>
+              <li>
+                <a href="">
+                  <i class="fa fa-heart-o" aria-hidden="true"></i>
+                  <span>02</span>
+                </a>
+              </li>
+             </ul>
+            
+
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-4 col-md-6 col-sm-12">
+        <div class="product-box-layout1">
+          <figure class="item-figure">
+            <a href=""><img src="https://radiustheme.com/demo/html/ranna/ranna/img/product/product3.jpg" alt="Juice"></a>
+          </figure>
+          <div class="item-content">
+            <span class="sub-title">JUICE</span>
+            <h2 class="item-title">
+              <a href="#">Blueberry Juice with Lemon Crema</a>
+            </h2>
+
+
+            <form id="" action="" method="POST">
+
+              
+              {% csrf_token %}
+
+             
+              <!-- Rating Stars Box -->
+             
+              <div class='rating-stars text-center' required>
+                <ul id='stars'>
+                  <li class='star' title='Poor' data-value='1'>
+                    <i class='fa fa-star fa-fw'></i>
+                  </li>
+                  <li class='star' title='Fair' data-value='2'>
+                    <i class='fa fa-star fa-fw'></i>
+                  </li>
+                  <li class='star' title='Good' data-value='3'>
+                    <i class='fa fa-star fa-fw'></i>
+                  </li>
+                  <li class='star' title='Excellent' data-value='4'>
+                    <i class='fa fa-star fa-fw'></i>
+                  </li>
+                  <li class='star' title='WOW!!!' data-value='5'>
+                    <i class='fa fa-star fa-fw'></i>
+                  </li>
+                </ul>
+              </div>
+
+            </form>
+
+
+            <ul class="entry-meta" id="stats">
+              <li>
+                <a href="">
+                  <i class="fa fa-clock-o" aria-hidden="true"></i>
+
+                  "15 Mins"
+                </a>
+              </li>
+              <li>
+                <a href="">
+                  <i class="fa fa-user" aria-hidden="true"></i>
+                  by
+                  <span>Linda Nyonje</span>
+                </a>
+              </li>
+              <li>
+                <a href="">
+                  <i class="fa fa-heart-o" aria-hidden="true"></i>
+                  <span>02</span>
+                </a>
+              </li>
+             </ul>
+            
+
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+
+
+    
+
+    <div class="row">
+
+      <div class="col-lg-8">
+
+        <div class="section-heading heading-dark">
+          <h2 class="item-heading">TRENDING RECIPES</h2>
+          <hr>
+        </div>
+
+        <div class="row">
+          <div class="col-12">
+            <div class="product-box-layout1">
+              <figure class="item-figure">
+                <a href=""><img src="https://radiustheme.com/demo/html/ranna/ranna/img/product/product4.jpg" alt=""></a>
+              </figure>
+              <div class="item-content">
+                <span class="sub-title">PASTA</span>
+                <h2 class="item-title">
+                  <a href="#">Porcini Mushroom Recipe</a>
+                </h2>
+
+
+                <form id="" action="" method="POST">
+
+                  
+                  {% csrf_token %}
+  
+                 
+                  <!-- Rating Stars Box -->
+                 
+                  <div class='rating-stars text-center' required>
+                    <ul id='stars'>
+                      <li class='star' title='Poor' data-value='1'>
+                        <i class='fa fa-star fa-fw'></i>
+                      </li>
+                      <li class='star' title='Fair' data-value='2'>
+                        <i class='fa fa-star fa-fw'></i>
+                      </li>
+                      <li class='star' title='Good' data-value='3'>
+                        <i class='fa fa-star fa-fw'></i>
+                      </li>
+                      <li class='star' title='Excellent' data-value='4'>
+                        <i class='fa fa-star fa-fw'></i>
+                      </li>
+                      <li class='star' title='WOW!!!' data-value='5'>
+                        <i class='fa fa-star fa-fw'></i>
+                      </li>
+                    </ul>
+                  </div>
+  
+                </form>
+
+
+                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.<br>
+                  Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,<br>
+                  when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+                </p>
+
+
+                <ul class="entry-meta" id="stats">
+                  <li>
+                    <a href="">
+                      <i class="fa fa-clock-o" aria-hidden="true"></i>
+    
+                      "15 Mins"
+                    </a>
+                  </li>
+                  <li>
+                    <a href="">
+                      <i class="fa fa-user" aria-hidden="true"></i>
+                      by
+                      <span>Linda Nyonje</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="">
+                      <i class="fa fa-heart-o" aria-hidden="true"></i>
+                      <span>02</span>
+                    </a>
+                  </li>
+                 </ul>
+                
+
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="row">
+
+          <div class="col-md-6 col-sm-6 col-12">
+            <div class="product-box-layout">
+              <figure class="item-figure">
+                <a href="">
+
+                  <img class="rounded"  src="https://radiustheme.com/demo/html/ranna/ranna/img/product/product5.jpg" alt="Dessert" style="width:100%">
+
+                </a>
+              </figure>
+            </div>
+
+            <div class="item-content">
+              <span class="sub-title">CHICKEN</span>
+              <h3 class="item-title">
+                <a href="">Asian Chicken Noodles</a>
+              </h3>
+              <form id="" action="" method="POST">
+
+                  
+                {% csrf_token %}
+
+               
+                <!-- Rating Stars Box -->
+               
+                <div class='rating-stars text-center' required>
+                  <ul id='stars'>
+                    <li class='star' title='Poor' data-value='1'>
+                      <i class='fa fa-star fa-fw'></i>
+                    </li>
+                    <li class='star' title='Fair' data-value='2'>
+                      <i class='fa fa-star fa-fw'></i>
+                    </li>
+                    <li class='star' title='Good' data-value='3'>
+                      <i class='fa fa-star fa-fw'></i>
+                    </li>
+                    <li class='star' title='Excellent' data-value='4'>
+                      <i class='fa fa-star fa-fw'></i>
+                    </li>
+                    <li class='star' title='WOW!!!' data-value='5'>
+                      <i class='fa fa-star fa-fw'></i>
+                    </li>
+                  </ul>
+                </div>
+
+            </form>
+              
+
+              <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.<br>
+                Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,<br>
+                when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+             </p>
+
+             <ul class="entry-meta" id="stats">
+              <li>
+                <a href="">
+                  <i class="fa fa-clock-o" aria-hidden="true"></i>
+
+                  "15 Mins"
+                </a>
+              </li>
+              <li>
+                <a href="">
+                  <i class="fa fa-user" aria-hidden="true"></i>
+                  by
+                  <span>Linda Nyonje</span>
+                </a>
+              </li>
+              <li>
+                <a href="">
+                  <i class="fa fa-heart-o" aria-hidden="true"></i>
+                  <span>02</span>
+                </a>
+              </li>
+             </ul>
+     
+            </div>
+          </div>
+
+          <div class="col-md-6 col-sm-6 col-12">
+            <div class="product-box-layout">
+              <figure class="item-figure">
+                <a href="">
+
+                  <img class="rounded"  src="https://radiustheme.com/demo/html/ranna/ranna/img/product/product6.jpg" alt="salad" style="width:100%">
+
+                </a>
+              </figure>
+            </div>
+
+            <div class="item-content">
+              <span class="sub-title">SALAD</span>
+              <h3 class="item-title">
+                <a href="">Italiano Salad Mixed</a>
+              </h3>
+              <form id="" action="" method="POST">
+
+                  
+                {% csrf_token %}
+
+               
+                <!-- Rating Stars Box -->
+               
+                <div class='rating-stars text-center' required>
+                  <ul id='stars'>
+                    <li class='star' title='Poor' data-value='1'>
+                      <i class='fa fa-star fa-fw'></i>
+                    </li>
+                    <li class='star' title='Fair' data-value='2'>
+                      <i class='fa fa-star fa-fw'></i>
+                    </li>
+                    <li class='star' title='Good' data-value='3'>
+                      <i class='fa fa-star fa-fw'></i>
+                    </li>
+                    <li class='star' title='Excellent' data-value='4'>
+                      <i class='fa fa-star fa-fw'></i>
+                    </li>
+                    <li class='star' title='WOW!!!' data-value='5'>
+                      <i class='fa fa-star fa-fw'></i>
+                    </li>
+                  </ul>
+                </div>
+
+            </form>
+              
+
+              <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.<br>
+                Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,<br>
+                when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+             </p>
+
+             <ul class="entry-meta" id="stats">
+              <li>
+                <a href="">
+                  <i class="fa fa-clock-o" aria-hidden="true"></i>
+
+                  "15 Mins"
+                </a>
+              </li>
+              <li>
+                <a href="">
+                  <i class="fa fa-user" aria-hidden="true"></i>
+                  by
+                  <span>Linda Nyonje</span>
+                </a>
+              </li>
+              <li>
+                <a href="">
+                  <i class="fa fa-heart-o" aria-hidden="true"></i>
+                  <span>02</span>
+                </a>
+              </li>
+             </ul>
+     
+            </div>
+          </div>
+
+          <br>
+          <br>
+
+          <div class="col-md-6 col-sm-6 col-12">
+            <div class="product-box-layout">
+              <figure class="item-figure">
+                <a href="">
+
+                  <img class="rounded"  src="https://radiustheme.com/demo/html/ranna/ranna/img/product/product7.jpg" alt="Dinner" style="width:100%">
+
+                </a>
+              </figure>
+            </div>
+
+            <div class="item-content">
+              <span class="sub-title">DINNER</span>
+              <h3 class="item-title">
+                <a href="">Mexican Egg Meal</a>
+              </h3>
+              <form id="" action="" method="POST">
+
+                  
+                {% csrf_token %}
+
+               
+                <!-- Rating Stars Box -->
+               
+                <div class='rating-stars text-center' required>
+                  <ul id='stars'>
+                    <li class='star' title='Poor' data-value='1'>
+                      <i class='fa fa-star fa-fw'></i>
+                    </li>
+                    <li class='star' title='Fair' data-value='2'>
+                      <i class='fa fa-star fa-fw'></i>
+                    </li>
+                    <li class='star' title='Good' data-value='3'>
+                      <i class='fa fa-star fa-fw'></i>
+                    </li>
+                    <li class='star' title='Excellent' data-value='4'>
+                      <i class='fa fa-star fa-fw'></i>
+                    </li>
+                    <li class='star' title='WOW!!!' data-value='5'>
+                      <i class='fa fa-star fa-fw'></i>
+                    </li>
+                  </ul>
+                </div>
+
+            </form>
+              
+
+              <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.<br>
+                Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,<br>
+                when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+             </p>
+
+             <ul class="entry-meta" id="stats">
+              <li>
+                <a href="">
+                  <i class="fa fa-clock-o" aria-hidden="true"></i>
+
+                  "15 Mins"
+                </a>
+              </li>
+              <li>
+                <a href="">
+                  <i class="fa fa-user" aria-hidden="true"></i>
+                  by
+                  <span>Linda Nyonje</span>
+                </a>
+              </li>
+              <li>
+                <a href="">
+                  <i class="fa fa-heart-o" aria-hidden="true"></i>
+                  <span>02</span>
+                </a>
+              </li>
+             </ul>
+     
+            </div>
+          </div>
+
+          <div class="col-md-6 col-sm-6 col-12">
+            <div class="product-box-layout">
+              <figure class="item-figure">
+                <a href="">
+
+                  <img class="rounded"  src="https://radiustheme.com/demo/html/ranna/ranna/img/product/product8.jpg" alt="juice" style="width:100%">
+
+                </a>
+              </figure>
+            </div>
+
+            <div class="item-content">
+              <span class="sub-title">JUICE</span>
+              <h3 class="item-title">
+                <a href="">Fresh Juice</a>
+              </h3>
+              <form id="" action="" method="POST">
+
+                  
+                {% csrf_token %}
+
+               
+                <!-- Rating Stars Box -->
+               
+                <div class='rating-stars text-center' required>
+                  <ul id='stars'>
+                    <li class='star' title='Poor' data-value='1'>
+                      <i class='fa fa-star fa-fw'></i>
+                    </li>
+                    <li class='star' title='Fair' data-value='2'>
+                      <i class='fa fa-star fa-fw'></i>
+                    </li>
+                    <li class='star' title='Good' data-value='3'>
+                      <i class='fa fa-star fa-fw'></i>
+                    </li>
+                    <li class='star' title='Excellent' data-value='4'>
+                      <i class='fa fa-star fa-fw'></i>
+                    </li>
+                    <li class='star' title='WOW!!!' data-value='5'>
+                      <i class='fa fa-star fa-fw'></i>
+                    </li>
+                  </ul>
+                </div>
+
+            </form>
+              
+
+              <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.<br>
+                Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,<br>
+                when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+             </p>
+
+             <ul class="entry-meta" id="stats">
+              <li>
+                <a href="">
+                  <i class="fa fa-clock-o" aria-hidden="true"></i>
+
+                  "15 Mins"
+                </a>
+              </li>
+              <li>
+                <a href="">
+                  <i class="fa fa-user" aria-hidden="true"></i>
+                  by
+                  <span>Linda Nyonje</span>
+                </a>
+              </li>
+              <li>
+                <a href="">
+                  <i class="fa fa-heart-o" aria-hidden="true"></i>
+                  <span>02</span>
+                </a>
+              </li>
+             </ul>
+     
+            </div>
+          </div>
+
+          <br>
+          <br>
+
+          <div class="col-md-6 col-sm-6 col-12">
+            <div class="product-box-layout">
+              <figure class="item-figure">
+                <a href="">
+
+                  <img class="rounded"  src="https://radiustheme.com/demo/html/ranna/ranna/img/product/product9.jpg" alt="Breakfast" style="width:100%">
+
+                </a>
+              </figure>
+            </div>
+
+            <div class="item-content">
+              <span class="sub-title">BREAKFAST</span>
+              <h3 class="item-title">
+                <a href="">Crepes With Forest</a>
+              </h3>
+              <form id="" action="" method="POST">
+
+                  
+                {% csrf_token %}
+
+               
+                <!-- Rating Stars Box -->
+               
+                <div class='rating-stars text-center' required>
+                  <ul id='stars'>
+                    <li class='star' title='Poor' data-value='1'>
+                      <i class='fa fa-star fa-fw'></i>
+                    </li>
+                    <li class='star' title='Fair' data-value='2'>
+                      <i class='fa fa-star fa-fw'></i>
+                    </li>
+                    <li class='star' title='Good' data-value='3'>
+                      <i class='fa fa-star fa-fw'></i>
+                    </li>
+                    <li class='star' title='Excellent' data-value='4'>
+                      <i class='fa fa-star fa-fw'></i>
+                    </li>
+                    <li class='star' title='WOW!!!' data-value='5'>
+                      <i class='fa fa-star fa-fw'></i>
+                    </li>
+                  </ul>
+                </div>
+
+            </form>
+              
+
+              <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.<br>
+                Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,<br>
+                when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+             </p>
+
+             <ul class="entry-meta" id="stats">
+              <li>
+                <a href="">
+                  <i class="fa fa-clock-o" aria-hidden="true"></i>
+
+                  "15 Mins"
+                </a>
+              </li>
+              <li>
+                <a href="">
+                  <i class="fa fa-user" aria-hidden="true"></i>
+                  by
+                  <span>Linda Nyonje</span>
+                </a>
+              </li>
+              <li>
+                <a href="">
+                  <i class="fa fa-heart-o" aria-hidden="true"></i>
+                  <span>02</span>
+                </a>
+              </li>
+             </ul>
+     
+            </div>
+          </div>
+
+          <div class="col-md-6 col-sm-6 col-12">
+            <div class="product-box-layout">
+              <figure class="item-figure">
+                <a href="">
+
+                  <img class="rounded"  src="https://radiustheme.com/demo/html/ranna/ranna/img/product/product10.jpg" alt="Dinner" style="width:100%">
+
+                </a>
+              </figure>
+            </div>
+
+            <div class="item-content">
+              <span class="sub-title">CHICKEN</span>
+              <h3 class="item-title">
+                <a href="">Asian Chicken Noodles</a>
+              </h3>
+              <form id="" action="" method="POST">
+
+                  
+                {% csrf_token %}
+
+               
+                <!-- Rating Stars Box -->
+               
+                <div class='rating-stars text-center' required>
+                  <ul id='stars'>
+                    <li class='star' title='Poor' data-value='1'>
+                      <i class='fa fa-star fa-fw'></i>
+                    </li>
+                    <li class='star' title='Fair' data-value='2'>
+                      <i class='fa fa-star fa-fw'></i>
+                    </li>
+                    <li class='star' title='Good' data-value='3'>
+                      <i class='fa fa-star fa-fw'></i>
+                    </li>
+                    <li class='star' title='Excellent' data-value='4'>
+                      <i class='fa fa-star fa-fw'></i>
+                    </li>
+                    <li class='star' title='WOW!!!' data-value='5'>
+                      <i class='fa fa-star fa-fw'></i>
+                    </li>
+                  </ul>
+                </div>
+
+            </form>
+              
+
+              <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.<br>
+                Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,<br>
+                when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+             </p>
+
+             <ul class="entry-meta" id="stats">
+              <li>
+                <a href="">
+                  <i class="fa fa-clock-o" aria-hidden="true"></i>
+
+                  "15 Mins"
+                </a>
+              </li>
+              <li>
+                <a href="">
+                  <i class="fa fa-user" aria-hidden="true"></i>
+                  by 
+                  <span>Linda Nyonje</span>
+                </a>
+              </li>
+              <li>
+                <a href="">
+                  <i class="fa fa-heart-o" aria-hidden="true"></i>
+                  <span>02</span>
+                </a>
+              </li>
+             </ul>
+     
+            </div>
+          </div>
+
+          <br>
+
+        </div>
+
+  
+      </div>
+
+      <div class="col-lg-4 sidebar-widget-area sidebar-break-md">
+
+        <div class="widget">
+          <div class="section-heading heading-dark">
+            <h3 class="item-heading">ABOUT ME</h3>
+
+            <hr>
+          </div>
+
+          <div class="widget-about">
+            <figure class="author-figure"><img src="https://radiustheme.com/demo/html/ranna/ranna/img/figure/about.jpg" alt="about"></figure>
+            <figure class="author-signature"><img src="https://radiustheme.com/demo/html/ranna/ranna/img/figure/signature.png" alt="about"></figure>
+            <p>Buy and Sell products with us. <br>Our Sellers are verified,
+              we do deliveries and have a return policy.
+            </p>
+          </div>
+        </div>
+
+        
+
+        <div class="widget">
+          <div class="heading">
+            
+            <h3 class="item-heading">SUBSCRIBE & FOLLOW</h3>
+
+            <hr>
+          </div>
+          <div class="widget-follow-us">
+
+            <ul >
+              <li class="single-item">
+                <a href=""  class="btn btn-secondary btn-lg" role="button" aria-disabled="true">
+                  <i class="fa fa-facebook" aria-hidden="true"></i>
+                </a>
+              </li>
+              <br>
+              <li class="single-item">
+                <a href="" class="btn btn-secondary btn-lg" role="button" aria-disabled="true">
+                  <i class="fa fa-twitter" aria-hidden="true"></i>
+                </a>
+              </li>
+           </ul>
+        
+           <ul>
+              <li class="single-item">
+                <a href="" class="btn btn-secondary btn-lg" role="button" aria-disabled="true">
+                  <i class="fa fa-linkedin" aria-hidden="true"></i> 
+                </a>
+              </li>
+              <br>
+              <li class="single-item">
+                <a href="" class="btn btn-secondary btn-lg" role="button" aria-disabled="true">
+                  <i class="fa fa-pinterest-p" aria-hidden="true"></i> 
+                </a>
+              </li>
+           </ul>
+
+
+           <ul >
+              <li class="single-item">
+                <a href="" class="btn btn-secondary btn-lg" role="button" aria-disabled="true">
+                  <i class="fa fa-instagram" aria-hidden="true"></i>FOLLOW ME
+                </a>
+              </li>
+              <li class="single-item">
+                <a href="" class="btn btn-secondary btn-lg" role="button" aria-disabled="true">
+                  <i class="fa fa-youtube-play" aria-hidden="true"></i> SUBSCRIBE
+                </a>
+              </li>
+           </ul>
+
+
+          </div>
+    
+        </div>
+
+
+        <div class="widget">
+
+          <div class="section-heading heading-dark">
+            
+            <h3 class="item-heading">LATEST RECIPES</h3>
+
+            <hr>
+          </div>
+
+          <div class="widget-latest">
+            <ul class="block-list">
+              <li class="single-item mt-2">
+                <div class="item-img">
+                  <a href="#">
+                    <img  src="https://radiustheme.com/demo/html/ranna/ranna/img/product/latest1.jpg" alt="berry">
+                  </a>
+                  <div class="count-number">1</div>
+                </div>
+
+                <div class="item-content">
+
+                  <div class="item-ctg">DESERT</div>
+                  <h4 class="item-title">
+                    <a href="#">
+                      Oven baked chicken breast with mushroom sauce
+                    </a>
+                  </h4>
+
+                  <div class="item-post-by">
+                    <a href="">
+                      <i class="fa fa-user" aria-hidden="true"></i>
+                      <span>by</span>
+                      " Linda Nyonje"
+                    </a>
+                  </div>
+
+                </div>
+
+              </li>
+            
+              <li class="single-item mt-2">
+                <div class="item-img">
+                  <a href="#">
+                    <img  src="https://radiustheme.com/demo/html/ranna/ranna/img/product/latest2.jpg" alt="berry">
+                  </a>
+                  <div class="count-number">1</div>
+                </div>
+
+                <div class="item-content">
+
+                  <div class="item-ctg">DESERT</div>
+                  <h4 class="item-title">
+                    <a href="#">
+                      Oven baked chicken breast with mushroom sauce
+                    </a>
+                  </h4>
+
+                  <div class="item-post-by">
+                    <a href="">
+                      <i class="fa fa-user" aria-hidden="true"></i>
+                      <span>by</span>
+                      " Linda Nyonje "
+                    </a>
+                  </div>
+
+                </div>
+
+              </li>
+
+              <li class="single-item mt-2">
+                <div class="item-img">
+                  <a href="#">
+                    <img  src="https://radiustheme.com/demo/html/ranna/ranna/img/product/latest3.jpg" alt="berry">
+                  </a>
+                  <div class="count-number">1</div>
+                </div>
+
+                <div class="item-content">
+
+                  <div class="item-ctg">DESERT</div>
+                  <h4 class="item-title">
+                    <a href="#">
+                      Oven baked chicken breast with mushroom sauce
+                    </a>
+                  </h4>
+
+                  <div class="item-post-by">
+                    <a href="">
+                      <i class="fa fa-user" aria-hidden="true"></i>
+                      <span>by</span>
+                      " Linda Nyonje "
+                    </a>
+                  </div>
+
+                </div>
+
+              </li>
+              
+
+              <li class="single-item mt-2">
+                <div class="item-img">
+                  <a href="#">
+                    <img  src="https://radiustheme.com/demo/html/ranna/ranna/img/product/latest4.jpg" alt="berry">
+                  </a>
+                  <div class="count-number">1</div>
+                </div>
+
+                <div class="item-content">
+
+                  <div class="item-ctg">DESERT</div>
+                  <h4 class="item-title">
+                    <a href="#">
+                      Oven baked chicken breast with mushroom sauce
+                    </a>
+                  </h4>
+
+                  <div class="item-post-by">
+                    <a href="">
+                      <i class="fa fa-user" aria-hidden="true"></i>
+                      <span>by</span>
+                      " Linda Nyonje "
+                    </a>
+                  </div>
+
+                </div>
+
+              </li>
+             
+
+              <li class="single-item mt-2">
+                <div class="item-img">
+                  <a href="#">
+                    <img  src="https://radiustheme.com/demo/html/ranna/ranna/img/product/latest2.jpg" alt="berry">
+                  </a>
+                  <div class="count-number">1</div>
+                </div>
+
+                <div class="item-content">
+
+                  <div class="item-ctg">DESERT</div>
+                  <h4 class="item-title">
+                    <a href="#">
+                      Oven baked chicken breast with mushroom sauce
+                    </a>
+                  </h4>
+
+                  <div class="item-post-by">
+                    <a href="">
+                      <i class="fa fa-user" aria-hidden="true"></i>
+                      <span>by</span>
+                      " Linda Nyonje "
+                    </a>
+                  </div>
+
+                </div>
+
+              </li>
+
+            </ul>
+          </div>
+
+        </div>
+
+
+        <br>
+        <br>
+
+        <div class="widget">
+          <div class="widget-ad">
+            <a href="#">
+              <img src="https://radiustheme.com/demo/html/ranna/ranna/img/figure/figure2.jpg" alt="Ad" class="img-fluid">
+            </a>
+          </div>
+        </div>
+
+        <br>
+        <br>
+
+
+        <div class="widget">
+          <div class="section-heading heading-dark">
+            <h3 class="item-heading">CATEGORIES</h3>
+          </div>
+
+          <hr>
+
+          <div class="widget-categories">
+            <ul>
+              <li>
+                <a href="">BreakFast
+                  <span>25</span>
+                </a>
+              </li>
+              <li>
+                <a href="">Lunch
+                  <span>25</span>
+                </a>
+              </li>
+              <li>
+                <a href="">Pasta
+                  <span>25</span>
+                </a>
+              </li>
+              <li>
+                <a href="">Dinner
+                  <span>25</span>
+                </a>
+              </li>
+              <li>
+                <a href="">Dessert
+                  <span>25</span>
+                </a>
+              </li>
+              <li>
+                <a href="">Drinks
+                  <span>25</span>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <br>
+
+
+        <div class="widget">
+          <div class="widget-newsletter-subscribe">
+            <h3>GET LATEST UPDATES</h3>
+            <p>Newsletter Subscribe</p>
+            <form class="newsletter-subscribe-form">
+              <div class="form-group">
+                <input type="text" placeholder="your e-mail address" class="form-control" name="email" data-error="E-mail field is required" required>
+                <div class="help-block with-errors"></div>
+
+              </div>
+              <div class="form-group mb-none">
+                <button type="submit" class="item-btn">SUBSCRIBE</button>
+
+              </div>
+            </form>
+          </div>
+        </div>
+
+
+        
+      </div>
+
+
+
+    </div>
+
+    
+    
+  </div>
+
+</div>
+
+
+{% endblock %}

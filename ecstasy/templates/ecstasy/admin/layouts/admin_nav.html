@@ -1,0 +1,42 @@
+{% load static %}
+
+<nav class="navbar navbar-expand-lg navbar-light bg-white" style="z-index: 99">
+
+  <div class="container-fluid">
+
+      <button type="button" id="sidebarCollapse" class="btn btn-outline-dark">
+
+          <i class="fa fa-bars"></i>
+          
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarNav">
+
+          <ul class="navbar-nav">   
+
+              {% if user.is_authenticated %}
+
+                  <div class="dropdown">
+                    <button class="btn btn-outline-dark border-0 mx-2" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Welcome {{ user.get_username }} <i class="fa-solid fa-angle-down"></i>
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                      <a class="dropdown-item" href="/">Home Page</a>
+                      <a class="dropdown-item" href="{% url 'dashboard' %}">Dashboard home</a>
+                      <a class="dropdown-item" href="{% url 'logout' %}?next={{request.path}}">Logout</a>
+                    </div>
+                  </div>
+
+              {% else %}
+ 
+                   <li class="nav-item"><a class="btn btn-dark" href="{% url 'login' %}?next={{request.path}}">Login</a></li> 
+
+              {% endif %}
+          </ul>
+
+      </div>
+
+  </div>
+
+</nav>
+  

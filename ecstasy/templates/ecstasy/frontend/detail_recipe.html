@@ -1,0 +1,159 @@
+{% extends 'ecstasy/frontend/layouts/master.html' %}
+
+
+{% load static %}
+
+{% block 'styles' %}
+
+<link href="{% static 'css/notiflix.css' %}" rel="stylesheet">
+
+{% endblock %}
+
+{% block content %}
+
+<div class="container">
+
+   <div class="row my-5 border border-light shadow-sm">
+
+      <div class="col-lg-6 col-md-6 col-sm-12">
+   
+         <img src="{{ recipe.image.url }}" class="img-fluid">
+
+      </div>
+
+      
+
+      <div class="col-lg-6 col-md-6 col-sm-12 ">
+
+         <!-- <div class="product-badge">Official Store</div> -->
+         <h1>{{recipe.name}}</h1>
+         <p>
+            {% for index in rating %}
+
+            ★
+
+            {% endfor %}
+
+         </p>
+         <h2>Kshs {{recipe.cost}}</h2>
+
+         <hr>
+
+         <div class="btn-group">
+            <button type="button" data-product="{{recipe.id}}" id="addCart" class="btn btn-primary"><i class="fa fa-cart-plus" 
+               aria-hidden="true"></i> Add to Cart</button> 
+         </div>
+   
+         <div class="btn-group">
+            <button type="button" data-product="{{recipe.id}}" id="addWishlist"class="btn btn-light"><i class="fa fa-heart-o"
+                aria-hidden="true"></i> Wishlist</button> 
+         </div>
+
+      </div>
+
+
+
+
+
+   </div>
+
+   
+    
+
+</div>
+
+<div class="container">
+
+   <div class="row my-5">
+
+      <div class="card">
+
+         <div class="card-header">
+            <h4>Product Details</h4>
+         </div>
+
+         <div class="card-body">
+
+            <div class="col-lg-6 col-md-6 col-sm-12">
+               <h5>Name:{{recipe.name}}</h5>
+               <p>Cost: Kshs {{recipe.cost}}</p>
+               <p> {{recipe.status}}</p>
+               <p>Description: {{recipe.description}}</p>
+               <p>Rating: {{recipe.rating}}</p>
+             
+            </div>
+            
+         </div>
+
+
+      </div>
+
+      
+   </div>
+
+   <div class="row">
+
+      <div class="col-sm-12">
+         <div class="card">
+
+            <div class="card-header">
+               <h4>Product Reviews</h4>
+            </div>
+   
+            <div class="card-body">
+             
+               <div class="">
+                  
+                  <p>Customer:{{ user.get_username }}</p>
+                  <p>Rating:{{recipe.rating}}</p>
+   
+                  <form action="POST">
+                     <div class="form-group ">
+                       <label for="email">Email address:</label>
+                       <input type="email" class="form-control w-25" name ="email" placeholder="Email"  id="email">
+                     </div>
+                     <div class="form-group">
+                        <textarea name="message"  rows="4" cols="50" >Type here..</textarea>
+     <br>
+                      </div>
+                     
+                     <button type="submit" class="btn btn-primary">Submit</button>
+                   </form>
+   
+               </div>
+   
+   
+            </div>
+         </div>
+      </div>
+
+   </div>
+
+    <h3 class="text-center">Related Products</h3>
+
+    <div class="row">
+
+      {% for product in related_products %}
+
+         <div class="col-lg-4">
+  
+            {% include 'shop/frontend/layouts/single_recipe.html' %}
+
+         </div>
+
+      {% endfor %}
+
+    </div>
+
+</div>
+
+{% endblock %}
+
+{% block 'scripts' %}
+
+<script src="{% static 'js/notiflix.js' %}"></script>
+
+
+{% endblock %}
+
+

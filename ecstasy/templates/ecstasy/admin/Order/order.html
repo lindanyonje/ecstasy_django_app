@@ -1,0 +1,194 @@
+{% extends 'ecstasy/admin/layouts/admin_master.html' %}
+
+{% block content %}
+
+<div class="container-fluid">
+
+
+    <div class="row my-5">
+        
+        <button class="btn btn-dark ml-auto" data-toggle="modal"
+            data-target="#orderModal">
+            <i class ="fa fa-plus" aria-hidden="true"></i> New Order
+       </button>
+            
+    </div>
+
+    
+            
+    </div>
+
+    <div class="row justify-content-center my-5">
+
+        <div class="col-lg-8">
+
+            <div class="card">
+
+                <div class="d-flex flex-row mb-3">
+                    <h4 class="card-title">All Orders</h4>
+                </div>
+
+    
+                <div class="card-body">
+
+                    <p class="card-title">Showing a total of {{orders.count}} orders:</h4>
+
+    
+                    <!--This is where we add our table-->
+                    <!--Table begins-->
+    
+                    <table class="table table-hover table-striped table-responsive-sm myTable">
+    
+                        <thead>
+                            <tr>
+                                <th>Id</th>
+                                <th>Order </th>
+                                <th>Status</th>
+                                <th>Customer_id</th>
+                                <th>Total</th>
+                                <th>Created At</th>
+                                <th>View</th>
+                                <th>Update</th>
+                                <th>Delete</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for order in orders %}
+                               <tr>
+                                   <td>{{order.id}}</td>
+                                   <td>{{order.recipe_category}}  </td>
+                                   <td id="status_{{order.id}}">{{order.status}}
+                                    {% if order.status == "Pending" %}
+
+                                        <button class="btn btn-outline-dark btn-sm" id="btn_complete_{{order.id}}" onclick="markAsComplete('{{order.id}}')" tooltiptext="Mark as complete"><i class="fa-thin fa-square-check"></i> 
+                                            <span class="tooltiptext">Mark as complete</span>
+                                        </button>
+
+                                      
+                                     {% endif %}
+                                </td>
+                                   <td>{{order.customer_id.name }}</td>
+                                   <td>{{order.total}}</td>
+                                   <td>{{order.created_at}}</td>
+                                   <td><a class="btn btn-sm btn-outline-info" href= "{% url 'Order_detail' order.id %}">View</a></td>
+                                   <td><a class="btn btn-sm btn-outline-info" href="{% url 'update_order' order.id %}"><i class="fa fa-pencil" aria-hidden="true"></i>Update </a></td>
+                                   <td><a class="btn btn-sm btn-outline-danger" href="{% url 'delete_order' order.id %}"><i class="fa fa-trash" aria-hidden="true"></i>Delete</a></td>
+                
+
+                                   
+                               </tr>
+                            {% endfor %}   
+                        </tbody>
+    
+                    </table>
+    
+    
+                    <!--Table ends-->
+    
+                </div>
+            </div>
+    
+
+        </div>
+
+        
+    </div>
+
+
+</div>
+
+<!-- Modals -->
+<div class="modal fade" id="orderModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title title" id="exampleModalLabel">order</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <form method="post" action="" enctype="multipart/form-data">
+                <!-- @method('POST') -->
+                <!-- @csrf -->
+                {% csrf_token %}
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label> Order Total </label>
+                        <input type="number" class="form-control" placeholder="total" name="total">
+                    </div>
+                    <div class="form-group">
+                        <label> Order Number </label>
+                        <input type="number" class="form-control" placeholder="enter number" name="Onumber">
+                    </div>
+                    <div class="form-group">
+                        <label>Status</label>
+                        <select class="form-control input-sm" name="order_id">
+                            <option value="Pending">Pending</option>
+                            <option value="Ongoing">Ongoing</option>
+                            <option value="Delivered">Delivered</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label> Shipping Cost </label>
+                        <input type="number" class="form-control" placeholder="enter number" name="scost">
+                    </div>
+                    <div class="form-group">
+                        <label> Customer Name</label>
+                        <input type="text" class="form-control" placeholder="Enter Name" name="name">
+                    </div>
+                </div>
+                <div class="modal-footer">
+<!--                        <button type="button" class="btn btn-outline-primary" data-dismiss="modal"><i class="fa fa-times mr-2"></i>Close</button>--}} -->
+                    <button type="submit" class="btn btn-dark"><i class="fa fa-plus-circle mr-2"></i>Save</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}
+
+<script>
+
+    
+function markAsComplete(order_id){
+
+
+
+$.ajax({
+    type: "POST",
+    url: "{% url 'mark_as_complete' %}",
+    dataType: "json",
+    data:{
+        'order_id':order_id,
+        
+    },
+    success:function(data){
+    //     Changes order from pending to complete
+
+    button = "#btn_complete_"+order_id
+    status = "#status_"+order_id
+    // $(button).addClass("d-none");
+    $(status).html("Completed")
+    // Notiflix.Notify.Success('order completed');
+
+    },
+    error: function(data){
+
+        console.log(data);
+        
+        // Notiflix.Notify.Failure('Something went wrong.');
+
+    }
+
+});
+}
+
+
+</script>
+
+{% block scripts %}
+
+
+{% endblock %}

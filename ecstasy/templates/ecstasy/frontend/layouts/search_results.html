@@ -1,0 +1,22 @@
+{% extends 'ecstasy/frontend/layouts/master.html' %}
+
+{% load static %}
+
+{% block content %}
+
+<h1>Search results</h1>
+<div class="row">
+
+    {% for product in object_list %}
+
+       <div class="col-lg-4">
+
+         {% include 'ecstasy/frontend/layouts/single_recipe.html' %}
+
+       </div>
+
+    {% endfor %}
+
+  </div>
+
+{% endblock %}

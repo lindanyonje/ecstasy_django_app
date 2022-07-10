@@ -1,0 +1,69 @@
+{% extends 'ecstasy/admin/layouts/admin_master.html' %}
+
+{% load static %}
+
+{% block content %}
+
+<div class="container">
+
+    <div class="row">
+
+        <div class="col-lg-12 mt-3">
+            <h2>Your Messages ({{inquiries.count}})</h2>
+
+            <div class="cards d-flex flex-column w-100">
+      
+                {% for inquiry in inquiries %}
+          
+                <div class="card w-100">
+                  <div class="card-top">
+                    <div class="name">
+                      <div class="img one text-light" alt=""><i class="fa fa-user"></i></div>
+                       <h6 class="font-weight-bold my-auto">{{inquiry.name}}</p>
+                      
+                    </div>
+                   
+                  </div>
+                  
+                  <div class="card-content">
+                    <h6>{{inquiry.message}}</p>
+                  </div>
+                  
+                  <div class="card-action">
+                    <span>{{inquiry.created_at}}</span>
+
+                    <div class="d-flex flex-row">
+                          <button class="btn btn-outline-info btn-sm">
+                            <i class="fa fa-trash-o" aria-hidden="true"></i>
+                            Delete
+                          </button>
+                          <button class="btn btn-info btn-sm mx-2">
+                            <i class="fa fa-reply" aria-hidden="true"></i>
+                            Reply
+                          </button>
+                    </div>
+                    
+          
+                    <!-- <button id = "remove" onclick="myFunction()"> <i class="fa fa-trash-o" aria-hidden="true"></i>Delete</button> -->
+                  </div>
+                  
+                </div>
+                
+                {% endfor %}
+              </div>
+        </div>
+    </div>
+    
+    
+    
+    
+  </div>
+
+{% endblock %}
+
+<!-- 
+<script>
+  function myFunction() {
+    document.getElementById("remove").remove ();
+  }
+</script> -->

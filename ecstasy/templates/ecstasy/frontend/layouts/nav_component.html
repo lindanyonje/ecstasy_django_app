@@ -1,0 +1,62 @@
+{% load static %}
+<div class="wrapper">
+      <div class="multi_color_border"></div>
+      <div class="top_nav">
+          <div class="left">
+            <div class="logo"><p><span>Kitchen</span>Ecstasy</p></div>
+            <div class="search_bar">
+              
+              <form class="mobile_search hidden-sm hidden-md hidden-lg" role="search" action="/" method="GET">
+                <div class="input-group">
+                <input type="text" class="form-control" placeholder="Search"/>
+                <span class="input-group-btn">
+                  <button class="btn btn-secondary" type="button"><i class="fa fa-search"></i></button>
+                </span>
+                </div>
+              </form>
+    
+            </div>
+        </div> 
+        <div class="right">
+          <ul>
+            <li class="nav-item"><a class ="nav-link"href="{% url 'wishlist' %}"><i class="fa fa-heart"></i>{{wishlist.count}}</a></li>
+            <li class="nav-item"><a class="nav-link mr-lg-2"href="{% url 'cart' %}"><i class="fa fa-shopping-cart"></i> {{cart.count}}</a></li>
+            <!-- <li><a href="#">Whats Next</a></li> -->
+            <!-- <li><a href="#">LogIn</a></li> -->
+            
+            {% if user.is_authenticated %}
+
+                    <li class="nav-item"><a href="{% url 'dashboard' %}" class="btn btn-outline-light border-0 mx-2"> Welcome {{ user.get_username }}</a></li>
+                    <li><a class="btn btn-light" href="{% url 'logout' %}?next={{request.path}}">Logout</a></li>
+
+                {% else %}
+
+                    <li class="nav-item"><a class="btn btn-light" href="{% url 'login' %}?next={{request.path}}">Login</a></li>
+
+                {% endif %}
+                <li><a href="#">SignUp</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="bottom_nav">
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="{% url 'category_recipes' %}">Category</a></li>
+          <li><a href="{% url 'all_recipes' %}">Recipes</a></li>
+          <li><a href="{% url 'about' %}">ABOUT Us</a></li>
+          <li><a href="{% url 'shop' %}">Shop</a></li>
+          <li class="nav-item">
+            <a class="btn btn-success"  data-toggle="modal" data-target="#exampleModal" data-whatever="@KE">CONTACT US
+            </a>
+          </li>
+        </ul>
+    </div>
+
+    <div class="banner">
+      <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8Zm9vZHxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60" alt="banner_img">
+    </div>
+</div>
+
+
+
+
