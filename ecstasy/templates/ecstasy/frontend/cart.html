@@ -48,11 +48,11 @@
                                    <td>{{object.recipe_id.name}}</td>
                                     <td>
 
-                                            <button class="btn btn-outline-danger border-0 btn-sm btnChanged" onclick="minusCartQuantity('{{object.id}}')"><i class="fa fa-minus"></i></button>
+                                        <button class="btn btn-outline-danger border-0 btn-sm btnChanged" onclick="minusCartQuantity('{{object.id}}')"><i class="fa fa-minus"></i></button>
 
-                                            <input  class="selected_quantity" name="productQty" id="cartQuantity_{{object.id}}" value="{{object.quantity}}" min="1" class="w-25">
+                                        <input  class="selected_quantity" name="productQty" id="cartQuantity_{{object.id}}" value="{{object.quantity}}" min="1" class="w-25">
 
-                                            <button class="btn btn-light btn-sm btnChanged" onclick="addCartQuantity('{{object.id}}')"><i class="fa fa-plus"></i></button> 
+                                        <button class="btn btn-light btn-sm btnChanged" onclick="addCartQuantity('{{object.id}}')"><i class="fa fa-plus"></i></button> 
 
                                     </td>
                                    <td>KES </td><td  id="row_cost_{{object.id}}" class="cost_per_row" data-product-cost="{{object.product_id.cost}}">{{object.recipe_id.cost}}</td>
