@@ -39,4 +39,11 @@ class InquiryForm(ModelForm):
 
     class Meta:
         model = Inquiry
-        fields= '__all__'                                           
+        fields= '__all__'    
+
+       
+class ReviewForm(ModelForm):
+
+    class Meta:
+        model = Inquiry
+        fields= '__all__'                                                   

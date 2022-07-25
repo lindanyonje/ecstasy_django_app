@@ -12,7 +12,7 @@ from .models import*
 from .forms import OfferForm, OrderForm, CustomerForm,RecipeForm,PaymentForm
 from django.views.generic import ListView
 from django.views.generic.detail import DetailView
-from django.views.generic.edit import CreateView
+from django.views.generic.edit import CreateView, UpdateView, DeleteView, FormView
 from .filters import OrderFilter
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
@@ -33,19 +33,21 @@ from django.dispatch import receiver
 def home(request):
 
    reviews = Review.objects.filter(status = "approved")[:6] 
-
-   # # recipe = Recipe.objects.get(name="Drinks")
-
-
-
-
-   # context['recipes'] = Recipe.objects.all()[:3]
-   # # context['categories'] = Recipe.objects.all()
-   # context['wishlist'] = Wishlist.objects.all()
-   # context['cart'] = Cart.objects.all()
+   recipes = Recipe.objects.all()[:3]
+   products = Product.objects.all()[:3]
+   categories= Category.objects.all()
+   wishlist = Wishlist.objects.all()
+   cart = Cart.objects.all()
+ 
+   # category = Category.objects.get(name="Recipes")
 
    context = {
-      'reviews' :reviews
+      'reviews' :reviews,
+      'recipes' :recipes,
+      'products': products,
+      'categories': categories,
+      'wishlist': wishlist,
+      'cart' : cart,
    }
 
    return render(request, 'ecstasy/frontend/home.html', context)
@@ -530,6 +532,127 @@ def getCategoryRecipe(request):
    return render(request, 'ecstasy/frontend/category.html', context)   
 
 
+def getCategoryProducts(request, id):
+
+    c_id = id
+    context = {}
+    context['recipes'] = Recipe.objects.filter(category_id = c_id)
+    context['products'] = Product.objects.filter(category_id = c_id)
+
+    return render(request, 'ecstasy/frontend/category.html', context)
+
+def getProduct(request, id):
+
+    product = Product.objects.get(pk = id)
+    commentForm = ReviewForm()
+    
+
+    context = {
+        'product' : product,
+        'related_products' : Product.objects.filter(category_id = product.id),
+        # 'reviews' : Review.objects.filter(product_id = product.id),
+        'form' : commentForm,
+        'rating': range(product.rating)
+    }
+
+    return render(request, 'ecstasy/frontend/detail_product.html', context)
+
+
+def getCategoryProducts(request, id):
+
+    c_id = id
+    context = {}
+    context['products'] = Product.objects.filter(category_id = c_id)
+
+    return render(request, 'ecstasy/frontend/category_products.html', context)
+
+class CategoryList(ListView):
+    
+    login_required= True
+    model = Category
+    template_name= "ecstasy/admin/category_list.html"
+
+class CategoryDetail(DetailView):
+
+    model = Category
+
+class CategoryCreate(CreateView):  
+
+    login_required= True
+    model = Category
+    template_name= "ecstasy/admin/category_form.html"
+
+    #specify the fields to be displayed
+
+    fields = '__all__'
+
+    #function to redirect user
+
+    def get_success_url(self):
+        return reverse('Category_List') #uses the path name
+
+class CategoryUpdate(UpdateView):
+
+    login_required= True
+    model = Category
+    fields = '__all__'
+    template_name= "ecstasy/admin/category_form.html"
+    success_url = '/categories' #this uses the path url
+
+class CategoryDelete(DeleteView):
+
+    login_required= True
+    model = Category
+    success_url = '/categories'
+
+    
+
+class ProductList(ListView):
+
+    login_required= True
+    model =Product
+    template_name= "ecstasy/admin/product_list.html"
+
+class ProductDetail(DetailView):
+
+    login_required= True
+    model = Product
+    template_name= "ecstasy/admin/product_detail.html"
+
+
+class ProductCreate(CreateView): 
+
+    login_required= True 
+    model = Product
+    template_name= "ecstasy/admin/product_form.html"
+    success_url = '/categories'
+
+    #specify the fields to be displayed
+
+    fields = '__all__'
+
+    #function to ridirect user
+
+    def get_success_url(self):
+        return reverse('Product')
+
+class ProductUpdate(UpdateView):
+
+    login_required= True
+    model = Product
+    fields = '__all__'
+    success_url = '/products'
+    template_name= "ecstasy/admin/product_form.html"
+
+
+class ProductDelete(DeleteView):
+
+    login_required= True
+    model = Product
+    success_url = '/products'
+    template_name= "ecstasy/admin/product_confirm_delete.html"
+
+
 
 def get_cart(request):
     cart_items = Cart.objects.filter(order_id__isnull = True)
@@ -602,10 +725,6 @@ def deleteCart(request):
     return JsonResponse(data)
 
 
-
-
-
-
 def addToCart(request):
 
     product_id = request.POST.get("product_id", None)
@@ -633,10 +752,6 @@ def addToCart(request):
 
 
     
-
-
-
-
 
 def deleteWishlist(request):
 

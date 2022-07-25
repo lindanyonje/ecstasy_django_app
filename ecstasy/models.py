@@ -33,6 +33,15 @@ class Product(models.Model):
         return self.name
 
 
+class Category(models.Model):
+    name=models.CharField(max_length=100, null=False, blank=False)
+    parent_id=models.ForeignKey('category',on_delete=models.CASCADE,blank=True,null=True)
+    created_at=models.DateTimeField(auto_now_add=True)
+    updated_at= models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.name
+
 
 class Recipe(models.Model):
 

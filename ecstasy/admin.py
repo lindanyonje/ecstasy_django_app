@@ -8,6 +8,7 @@ from .models import *
 
 
 admin.site.register(Customer)
+admin.site.register(Category)
 admin.site.register(Recipe)
 admin.site.register(Product)
 admin.site.register(Review)
@@ -19,5 +20,6 @@ admin.site.register(Rating)
 admin.site.register(Wishlist)
 admin.site.register(Cart)
 admin.site.register(Checkout)
+
 
 
