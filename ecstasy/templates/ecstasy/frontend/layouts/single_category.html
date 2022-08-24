@@ -1,4 +1,8 @@
+{% extends 'ecstasy/frontend/layouts/master.html' %}
+
 {% load static %}
+
+{% block content %}
 
 <a href="{% url 'category_recipes' category.id %}">
   
@@ -21,4 +25,6 @@
 
     </div>
 
-  </a>
+</a>
+
+{% endblock %}  
