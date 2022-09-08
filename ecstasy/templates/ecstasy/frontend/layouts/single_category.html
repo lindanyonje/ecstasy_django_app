@@ -1,30 +1,21 @@
-{% extends 'ecstasy/frontend/layouts/master.html' %}
 
 {% load static %}
 
 {% block content %}
 
-<a href="{% url 'category_recipes' category.id %}">
-  
-    <div class="card service-card card-inverse bg-dark py-2 text-light">
-
-      <div class="card-block">
-     
-        <h5 class="card-title">{{ category.name }}</h5>
-        <div class="col-lg-4 col-md-6 col-sm-6 col-12">
-          <div class="category-box-layout1">
-              <figure class="item-figure"><a href="#"><img src="https://radiustheme.com/demo/html/ranna/ranna/img/product/product29.jpg" alt="Product"></a></figure>
-              <div class="item-content">
-                  <h3 class="item-title"><a href="$">Chicken</a></h3>
-                  <span class="sub-title"> 14 Recipes</span>
-              </div>
+<a href="{% url 'get_category_recipes' category.id %}">
+  <div class="col-lg-4 col-md-6 col-sm-6 col-12">
+    
+      <div class="category-box-layout1">
+          <figure class="item-figure"><a href="{% url 'get_category_recipes' category.id %}"><img src="{{ category.image.url }}" alt="Product"></a></figure>
+          <div class="item-content">
+              <h3 class="item-title"><a href="{% url 'get_category_recipes' category.id %}">{{ category.name }}</a></h3>
+              <span class="sub-title"> {{ category.getNumberOfRecipes }} Recipes</span>
           </div>
-        </div>
-        
       </div>
-
-    </div>
-
+    
+  </div>
 </a>
+
 
 {% endblock %}  

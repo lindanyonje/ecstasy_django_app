@@ -3,6 +3,11 @@
 
 {% load static %}
 
+{% block 'styles' %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/category.css' %}">
+{% endblock 'styles' %}
+
+
 {% block content %}
 
 <!-- 
@@ -140,27 +145,24 @@
         </div>    
            
     </div>
-</section> -->
+</section>  -->
 
 
 <section class="category-page-wrap padding-top-80 padding-bottom-50 mt-5">
     <div class="container">
         <div class="row">
 
-            {% for recipe in recipe %}
 
-                <div class="col-lg-4">
+            {% for category in categories %}
 
-                    {% include 'ecstasy/frontend/layouts/single_recipe.html' %}
-
-                </div>
+                {% include 'ecstasy/frontend/layouts/single_category.html' %}
 
             {% endfor %}
 
        </div>    
                     
     </div>
-</section>
+</section> 
 
 
 

@@ -38,6 +38,12 @@ class Category(models.Model):
     parent_id=models.ForeignKey('category',on_delete=models.CASCADE,blank=True,null=True)
     created_at=models.DateTimeField(auto_now_add=True)
     updated_at= models.DateTimeField(auto_now_add=True)
+    image = models.ImageField(null=True, blank=False)
+
+
+    def getNumberOfRecipes(self):
+        return self.recipe_set.all().count()
+
 
     def __str__(self):
         return self.name
@@ -57,7 +63,8 @@ class Recipe(models.Model):
         ('AirFryer', 'AirFryer'),
     )
     
-    category=models.CharField(max_length=100, null=False, blank=False,choices=CATEGORY, default='Drinks')
+  
+    parent_category = models.ForeignKey(Category, null=True, blank=False, on_delete=models.SET_NULL)
     name=models.CharField(max_length=100, null=True, blank=False)
     description=models.TextField(null=False, blank=False)
     image=models.FileField(upload_to='images')
@@ -65,8 +72,9 @@ class Recipe(models.Model):
     created_at=models.DateTimeField(auto_now_add=True)
     updated_at= models.DateTimeField(auto_now=True)
 
+
     def __str__(self):
-        return self.category
+        return self.name
 
 
 class Order(models.Model):

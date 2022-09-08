@@ -19,8 +19,7 @@ urlpatterns=[
     path('recipes/details/<id>', views.singleRecipe, name="recipe_details"),
     path('all_recipes/', views.getRecipe, name="all_recipes"),
 
-    
-
+    path('category/details/<id>', views.getCategoryRecipes, name="get_category_recipes"),
 
 
     path('customer/', views.customer, name="customer"),

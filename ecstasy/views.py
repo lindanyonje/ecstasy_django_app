@@ -526,7 +526,10 @@ def getCategoryRecipe(request):
    
    recipe = Recipe.objects.all()
 
-   context={'recipe': recipe}
+   context={
+      'recipes': recipe,
+      'categories':Category.objects.all()
+   }
 
 
    return render(request, 'ecstasy/frontend/category.html', context)   
@@ -565,6 +568,17 @@ def getCategoryProducts(request, id):
     context['products'] = Product.objects.filter(category_id = c_id)
 
     return render(request, 'ecstasy/frontend/category_products.html', context)
+
+
+# Filter recipes in specific category
+def getCategoryRecipes(request,id):
+   recipes = Recipe.objects.filter(parent_category__id=id)
+
+   context = {
+      "category_recipes": recipes
+   }
+
+   return render(request, "ecstasy/frontend/category_recipes.html", context)
 
 class CategoryList(ListView):
     
