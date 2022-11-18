@@ -7,24 +7,18 @@
 
 <section class="recipe-without-sidebar-wrap padding-top-80 padding-bottom-22">
     <div class="container mt-5">
+
+        
         
         <div class="adv-search-wrap">
           <div class="input-group">
               <input type="text" class="form-control" placeholder="Author Name or Recipe Search . . .">
               <div class="btn-group">
-                  <div class="input-group-btn adv-search-fill-btn">
-                      <button type="button" id="adv-serch" class="btn-adv-serch">
-                          <i class="icon-plus flaticon-add-plus-button"></i>
-                          <i class="icon-minus fas fa-minus"></i>
-                          Advanced Search
-                      </button>
-                  </div>
-                  <div class="input-group-btn">
-                      <button type="submit" class="btn-search"><i class="flaticon-search"></i></button>
-                  </div>
+                  
+                  <button class="collapsible">Open Collapsible</button>
               </div>
           </div>
-          <div class="advance-search-form">
+          <div class="advance-search-form content">
               <div class="row">
                   <div class="col-lg-6">
                       <h3 class="item-title">BY CATEGORIES</h3>
@@ -1018,5 +1012,27 @@
     </div>
 </section>
 	
+
+{% endblock %}
+
+{% block scripts %}
+
+<script>
+  var coll = document.getElementsByClassName("collapsible");
+  var i;
+  
+  for (i = 0; i < coll.length; i++) {
+    coll[i].addEventListener("click", function() {
+      this.classList.toggle("active");
+      var content = this.nextElementSibling;
+      if (content.style.maxHeight){
+        content.style.maxHeight = null;
+      } else {
+        content.style.maxHeight = content.scrollHeight + "px";
+      } 
+    });
+  }
+</script>
+
 
 {% endblock %}
