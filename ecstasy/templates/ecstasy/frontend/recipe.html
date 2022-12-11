@@ -12,13 +12,24 @@
         
         <div class="adv-search-wrap">
           <div class="input-group">
-              <input type="text" class="form-control" placeholder="Author Name or Recipe Search . . .">
-              <div class="btn-group">
-                  
-                  <button class="collapsible">Open Collapsible</button>
+            
+<!--                 
+          <form class="navbar-form navbar w-100" action="" method="GET">
+            <div class="input-group">
+              <input type="text" class="form-control" name="search_data" placeholder="Author Name or Recipe Search . . .">
+              <div class="input-group-btn"> 
+                <button class="btn btn-default" type="submit">
+                  <i class="fa fa-search" aria-hidden="true"></i>
+                </button>
+              </div>
+            </div>
+          </form> -->
+          <input type="text" class="form-control" name="search_data" placeholder="Recipe Search . . .">
+                <div class="btn-group">
+                  <button  type="button" class="btn btn-danger" data-toggle="collapse" data-target="#demo">Advanced search</button>
               </div>
           </div>
-          <div class="advance-search-form content">
+          <div id="demo" class="collapse" >
               <div class="row">
                   <div class="col-lg-6">
                       <h3 class="item-title">BY CATEGORIES</h3>

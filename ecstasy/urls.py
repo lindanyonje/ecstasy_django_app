@@ -1,4 +1,4 @@
-from django.urls import path
+from django.urls import path,include
 from . import views
 from django.conf import settings
 
@@ -7,6 +7,7 @@ from ecstasy.views import *
 
 
 urlpatterns=[
+    path('accounts/', include('django.contrib.auth.urls')),
     path('', views.home, name="home"),
     path('dashboard/',views.adminDashboard,name="dashboard"),
 
@@ -76,7 +77,7 @@ urlpatterns=[
     path('complete/order', views.ordercomplete, name="order_complete"),
     path('order/mark/completed', views.markAsComplete, name="mark_as_complete"),
     path('checkout/details/<total>', views.checkoutDetails, name="checkout_details"),
-    path('complete/checkout/', views.finalizeCheckout, name="complete.checkout"),
+    path('complete/checkout/', views.finalizeCheckout, name="complete_checkout"),
 
 
     path('shop/', views.shop, name="shop"),

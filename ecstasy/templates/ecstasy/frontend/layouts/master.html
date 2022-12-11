@@ -18,6 +18,8 @@
   <link rel="stylesheet" type="text/css" href="{% static 'css/category.css' %}">
   <link rel="stylesheet" type="text/css" href="{% static 'css/header.css' %}">
   <link rel="stylesheet" type="text/css" href="{% static 'css/about.css' %}">
+  <link rel="stylesheet" type="text/css" href="{% static 'css/cart.css' %}">
+  <link rel="stylesheet" type="text/css" href="{% static 'css/shop.css' %}">
   <link rel="stylesheet" type="text/css" href="{% static 'css/notiflix.css' %}">
   <link rel="stylesheet" href="owlcarousel/owl.carousel.min.css">
   <link rel="stylesheet" href="owlcarousel/owl.theme.default.min.css">
@@ -36,11 +38,13 @@
     <!--End navigation Bar-->
 
 
-    <div class="container-fluid mb-5 content">
-      {% block content%}
+    <div >
+
+      {% block content %}
 
 
       {% endblock content %}
+      
     </div>
 
     <!-- Modals -->
@@ -94,7 +98,7 @@
         
         </div>
       </div>
-    </div>
+     </div>
 
     <!-- end of modal -->
 
@@ -261,10 +265,9 @@
 
   
   
+{% block 'scripts' %}
 
-{% block scripts %}
-
-{% endblock %}
+{% endblock 'scripts' %}
 
 </body>
 </html>

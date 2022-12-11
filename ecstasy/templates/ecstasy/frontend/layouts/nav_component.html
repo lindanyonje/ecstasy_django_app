@@ -98,7 +98,7 @@
                                 <div class="cart-item">
                                     <div class="cart-btn">
                                         <a  class="item-btn" href="{% url 'cart' %}"><i class="fa fa-shopping-cart"></i>View Cart</a>
-                                        <a href="#" class="item-btn">Checkout</a>
+                                        <a href="{% url 'checkout_details' total %}" class="item-btn">Checkout</a>
                                     </div>
                                 </div>
                             </div>
@@ -132,17 +132,17 @@
     </div>
 
     <div class="bottom_nav">
-    <ul>
-        <li><a href="/">Home</a></li>
-        <li><a href="{% url 'category_recipes' %}">Category</a></li>
-        <li><a href="{% url 'all_recipes' %}">Recipes</a></li>
-        <li><a href="{% url 'about' %}">ABOUT Us</a></li>
-        <li><a href="{% url 'shop' %}">Shop</a></li>
-        <li class="nav-item">
-            <a class="btn btn-success"  data-toggle="modal" data-target="#exampleModal" data-whatever="@KE">CONTACT US
-            </a>
-        </li>
-    </ul>
+        <ul class="nav-item">
+            <li><a href="/">Home</a></li>
+            <li><a href="{% url 'category_recipes' %}">Category</a></li>
+            <li><a href="{% url 'all_recipes' %}">Recipes</a></li>
+            <li><a href="{% url 'about' %}">ABOUT Me</a></li>
+            <li><a href="{% url 'shop' %}">Shop</a></li>
+            <li class="nav-item">
+                <a class="btn btn-success"  data-toggle="modal" data-target="#exampleModal" data-whatever="@KE">CONTACT US
+                </a>
+            </li>
+        </ul>
     </div>
 
     <div class="banner">
