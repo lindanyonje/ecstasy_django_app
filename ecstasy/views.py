@@ -908,3 +908,8 @@ def shop(request):
 def getAboutMe(request):
 
    return render(request, 'ecstasy/frontend/about_me.html')        
+
+# def checkoutOrder(request):
+    
+
+#     return render(request, 'ecstasy/frontend/checkout.html')

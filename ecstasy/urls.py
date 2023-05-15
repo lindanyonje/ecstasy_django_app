@@ -76,7 +76,7 @@ urlpatterns=[
 
     path('complete/order', views.ordercomplete, name="order_complete"),
     path('order/mark/completed', views.markAsComplete, name="mark_as_complete"),
-    path('checkout/details/<total>', views.checkoutDetails, name="checkout_details"),
+    path('checkout/details/<int:total>', views.checkoutDetails, name="checkout_details"),
     path('complete/checkout/', views.finalizeCheckout, name="complete_checkout"),
 
 

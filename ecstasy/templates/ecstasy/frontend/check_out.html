@@ -1,0 +1,209 @@
+{% extends 'ecstasy/frontend/layouts/master.html' %}
+
+{% load widget_tweaks %}
+
+{% load static %}
+
+
+{% block content %}
+
+<div class="container">
+
+    <h4 class="mt-5" >CHECKOUT</h4>
+
+    <div class="row justify-content-center my-5">
+
+        <div class="col-lg-8">
+
+            <div class="card">
+
+                <div class="card-header">
+                    <h4 class="card-title">1. ADDRESS DETAILS</h4>
+        
+                </div>
+    
+                <div class="card-body">
+
+                    <form id="checkoutForm">
+                        <div class="form-row">
+                          <div class="col">
+                            <label for="inputEmail4">Your name</label>
+
+                            <input type="text" class="form-control" name="name" placeholder="Full name">
+                          </div>
+                          <div class="form-group col-md-6">
+                            <label for="inputEmail4">Your Email</label>
+                            <input type="email" class="form-control" name="email" id="inputEmail4" placeholder="Email">
+                          </div>
+                        </div>
+                    </form>      
+                </div>
+
+            </div>
+
+            
+
+            <div class=" card">
+                <div class= "card-header">
+                    <h4 class="card-title">2. PAYMENT METHOD</h4>
+                </div>
+                <div class="card-body">
+
+                    <h6>How do you want to pay for your order?</h6>
+                    
+                        <fieldset class="form-group">
+                          <div class="row">
+                            
+                            <div class="col-sm-2">
+                              <div class="form-check">
+                                <input class="form-check-input" type="radio" name="paymentMode" id="gridRadios3" value="pay_now" checked>
+                                <label class="form-check-label" for="gridRadios3">
+                                 Pay Now
+                                </label>
+                              </div>
+                              
+                            </div>
+
+                            <div class="col-sm-10">
+                                <img class="footer-image mx-3 img-fluid" src="{% static 'kcb.png' %}" alt="KCB">
+                                <img class="footer-image mx-3 img-fluid" src="{% static 'M-pesa.jpg' %}" alt="M-PESA">
+                                <img class="footer-image mx-3 img-fluid" src="{% static 'airtel.png' %}" alt="Airtel">
+                                <img class="footer-image mx-3 img-fluid" src="{% static 'visa.png' %}" alt="VISA">
+                            </div>
+                          </div>
+                          <hr>
+
+                          
+                          <div class="col-sm-10">
+                           
+                            <img class="footer-image mx-4 img-fluid" src="{% static 'M-pesa.jpg' %}" alt="M-PESA">
+                           
+                          </div>
+                          
+                        </div>
+
+                        <input type="text" name="total" value="{{total}}">
+
+                      </form>
+
+                      <form class="form-inline">
+                        
+                        <div class="form-group mx-sm-3 mb-2">
+                          <label for="voucher" class="sr-only">Enter voucher code here</label>
+                          <input type="password" class="form-control" id="voucher" name="voucher" placeholder="Enter voucher code here">
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-sm mb-2">ADD VOUCHER</button>
+                      </form>
+
+                      <div class="col-sm-12">
+
+                        
+                                <h6>Total: 0.0</h6>
+                                <h6>Discount: 0.0</h6>
+                                <h6>Value Added Tax(VAT): 0.0</h6>
+            
+                                <hr>
+           
+                              
+
+                        </div>
+
+                        <div class="d-flex flex-row justify-content-end my-4">
+
+                         <h4 class="font-weight-bold my-auto mr-2" id="grand_total">Grand Total: KES {{total}}</h4>
+
+                          <button id="confirm_order" class="btn btn-primary mr-2">
+                            CONFIRM ORDER
+                          </button>
+
+                        </div>
+                
+
+                    </div>
+            
+                </div>
+            </div>
+
+        </div>
+
+        
+    </div>
+
+    <div class="col-lg-4">
+      <div class="card">
+
+          <div class="card-body">
+
+              <h5 class="font-weight-bold">Summary</h5>
+              <hr>
+
+              <h6>Total: 0.0</h6>
+              <h6>Discount: 0.0</h6>
+              <h6>Value Added Tax(VAT): 0.0</h6>
+
+              <hr>
+              <h4 class="font-weight-bold mb-5" class="grand_total" id="grand_total">Grand Total: 0.0</h4>
+
+               <div class="btn-group">
+                  <button type="button" class="btn btn-light">CONTINUE SHOPPING</button>
+                 
+                </div>
+                
+          </div>
+          
+          </div>
+      </div>
+  </div>
+
+
+
+
+</div>
+
+
+    
+
+
+
+{% endblock %}
+
+{% block 'scripts' %}
+
+<script>
+
+$(document).ready(function(){
+    
+
+    $.ajaxSetup({
+        headers:{
+            'X-CSRFToken': $('meta[name="csrf-token"]').attr('content')
+        }
+    });
+
+   
+    });
+
+
+  $('#confirm_order').on('click', function(){
+  
+    $.ajax({
+        type: "POST",
+        url: "{% url 'complete.checkout' %}",
+        dataType: "json",
+        data: $("#checkoutForm").serialize(),
+        success: function(data){
+            window.location.href = "/order/receipt/"+data['order']
+        },
+        error: function(data){
+            console.log(data);
+        }
+    });
+}
+);
+
+</script>
+
+{% endblock %}
+
+
+
