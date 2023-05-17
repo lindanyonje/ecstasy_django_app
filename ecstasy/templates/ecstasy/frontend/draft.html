@@ -29,226 +29,190 @@
 </div>
 
 
-<!-- <h3 class="text-center">Featured Recipes</h3>
 
-    <div class="row">
+<!-- ggg -->
+<div class="adv-search-wrap">
+          
+  <form class="navbar-form navbar w-100" action="" method="GET">
 
-      {% for recipe in recipes %}
-
-         <div class="col-lg-4">
-  
-           {% include 'ecstasy/frontend/layouts/single_recipe.html' %}
-
-         </div>
-
-      {% endfor %}
-
-    </div> -->
-
-
-    <div class=" row justify-content-center mt-3">
-        <div class= "col-lg-4">
-  
-          <img class="d-block w-100" src="{% static 'images/berry.jpg' %}" alt="berry">
-  
-        </div>
-  
-        <div class= "col-lg-4">
-  
-          <img class="d-block w-100" src="{% static 'images/berry.jpg' %}" alt="berry">
-  
-        </div>
-  
-        <div class= "col-lg-4">
-  
-          <img class="d-block w-100" src="{% static 'images/berry.jpg' %}" alt="berry">
-  
-        </div>
-  
-  
-      </div>
-
-
-
-      <section class="ranna-slider-area">
-        <div class="container">
-            <div class="rc-carousel nav-control-layout2 owl-carousel owl-loaded owl-drag" data-loop="true" data-items="30" data-margin="5" data-autoplay="true" data-autoplay-timeout="5000" data-smart-speed="700" data-dots="false" data-nav="true" data-nav-speed="false" data-r-x-small="1" data-r-x-small-nav="true" data-r-x-small-dots="false" data-r-x-medium="1" data-r-x-medium-nav="true" data-r-x-medium-dots="false" data-r-small="1" data-r-small-nav="true" data-r-small-dots="false" data-r-medium="1" data-r-medium-nav="true" data-r-medium-dots="false" data-r-large="1" data-r-large-nav="true" data-r-large-dots="false" data-r-extra-large="1" data-r-extra-large-nav="true" data-r-extra-large-dots="false">
-                
-                
-                
-            <div class="owl-stage-outer"><div class="owl-stage" style="transform: translate3d(-2350px, 0px, 0px); transition: all 0.7s ease 0s; width: 8225px;"><div class="owl-item cloned" style="width: 1170px; margin-right: 5px;"><div class="ranna-slider-content-layout1">
-                    <figure class="item-figure"><a href="single-recipe1.html"><img src="img/slider/slide1-2.jpg" alt="Product"></a></figure>
-                    <div class="item-content">
-                        <span class="sub-title">SALAD</span>
-                        <h2 class="item-title"><a href="single-recipe1.html">Italiano Salad Mixed</a></h2>
-                        <ul class="item-rating">
-                            <li class="star-fill"><i class="fas fa-star"></i></li>
-                            <li class="star-fill"><i class="fas fa-star"></i></li>
-                            <li class="star-fill"><i class="fas fa-star"></i></li>
-                            <li class="star-fill"><i class="fas fa-star"></i></li>
-                            <li class="star-empty"><i class="fas fa-star"></i></li>
-                            <li><span>9<span> / 10</span></span> </li>
-                        </ul>
-                        <p>More off this less hello salamander lied porpoise much over tightly circa
-                            outside crud mightily rigorouse. </p>
-                        <ul class="entry-meta">
-                            <li><a href="#"><i class="fas fa-clock"></i>15 Mins</a></li>
-                            <li><a href="#"><i class="fas fa-user"></i>by <span>John Martin</span></a></li>
-                            <li><a href="#"><i class="fas fa-heart"></i><span>02</span> Likes</a></li>
-                        </ul>
-                    </div>
-                </div>
-              </div>
-                <div class="owl-item cloned" style="width: 1170px; margin-right: 5px;"><div class="ranna-slider-content-layout1">
-                    <figure class="item-figure"><a href="single-recipe1.html"><img src="img/slider/slide1-3.jpg" alt="Product"></a></figure>
-                    <div class="item-content">
-                        <span class="sub-title">SALAD</span>
-                        <h2 class="item-title"><a href="single-recipe1.html">Italiano Salad Mixed</a></h2>
-                        <ul class="item-rating">
-                            <li class="star-fill"><i class="fas fa-star"></i></li>
-                            <li class="star-fill"><i class="fas fa-star"></i></li>
-                            <li class="star-fill"><i class="fas fa-star"></i></li>
-                            <li class="star-fill"><i class="fas fa-star"></i></li>
-                            <li class="star-empty"><i class="fas fa-star"></i></li>
-                            <li><span>9<span> / 10</span></span> </li>
-                        </ul>
-                        <p>More off this less hello salamander lied porpoise much over tightly circa
-                            outside crud mightily rigorouse. </p>
-                        <ul class="entry-meta">
-                            <li><a href="#"><i class="fas fa-clock"></i>15 Mins</a></li>
-                            <li><a href="#"><i class="fas fa-user"></i>by <span>John Martin</span></a></li>
-                            <li><a href="#"><i class="fas fa-heart"></i><span>02</span> Likes</a></li>
-                        </ul>
-                    </div>
-                </div>
-              </div>
-                <div class="owl-item active" style="width: 1170px; margin-right: 5px;"><div class="ranna-slider-content-layout1">
-                    <figure class="item-figure"><a href="single-recipe1.html"><img src="img/slider/slide1-1.jpg" alt="Product"></a></figure>
-                    <div class="item-content">
-                        <span class="sub-title">SALAD</span>
-                        <h2 class="item-title"><a href="single-recipe1.html">Italiano Salad Mixed</a></h2>
-                        <ul class="item-rating">
-                            <li class="star-fill"><i class="fas fa-star"></i></li>
-                            <li class="star-fill"><i class="fas fa-star"></i></li>
-                            <li class="star-fill"><i class="fas fa-star"></i></li>
-                            <li class="star-fill"><i class="fas fa-star"></i></li>
-                            <li class="star-empty"><i class="fas fa-star"></i></li>
-                            <li><span>9<span> / 10</span></span> </li>
-                        </ul>
-                        <p>More off this less hello salamander lied porpoise much over tightly circa
-                            outside crud mightily rigorouse. </p>
-                        <ul class="entry-meta">
-                            <li><a href="#"><i class="fas fa-clock"></i>15 Mins</a></li>
-                            <li><a href="#"><i class="fas fa-user"></i>by <span>John Martin</span></a></li>
-                            <li><a href="#"><i class="fas fa-heart"></i><span>02</span> Likes</a></li>
-                        </ul>
-                    </div>
-                </div>
-              </div>
-                <div class="owl-item" style="width: 1170px; margin-right: 5px;"><div class="ranna-slider-content-layout1">
-                    <figure class="item-figure"><a href="single-recipe1.html"><img src="img/slider/slide1-2.jpg" alt="Product"></a></figure>
-                    <div class="item-content">
-                        <span class="sub-title">SALAD</span>
-                        <h2 class="item-title"><a href="single-recipe1.html">Italiano Salad Mixed</a></h2>
-                        <ul class="item-rating">
-                            <li class="star-fill"><i class="fas fa-star"></i></li>
-                            <li class="star-fill"><i class="fas fa-star"></i></li>
-                            <li class="star-fill"><i class="fas fa-star"></i></li>
-                            <li class="star-fill"><i class="fas fa-star"></i></li>
-                            <li class="star-empty"><i class="fas fa-star"></i></li>
-                            <li><span>9<span> / 10</span></span> </li>
-                        </ul>
-                        <p>More off this less hello salamander lied porpoise much over tightly circa
-                            outside crud mightily rigorouse. </p>
-                        <ul class="entry-meta">
-                            <li><a href="#"><i class="fas fa-clock"></i>15 Mins</a></li>
-                            <li><a href="#"><i class="fas fa-user"></i>by <span>John Martin</span></a></li>
-                            <li><a href="#"><i class="fas fa-heart"></i><span>02</span> Likes</a></li>
-                        </ul>
-                    </div>
-                </div>
-              </div>
-              <div class="owl-item" style="width: 1170px; margin-right: 5px;"><div class="ranna-slider-content-layout1">
-                    <figure class="item-figure"><a href="single-recipe1.html"><img src="img/slider/slide1-3.jpg" alt="Product"></a></figure>
-                    <div class="item-content">
-                        <span class="sub-title">SALAD</span>
-                        <h2 class="item-title"><a href="single-recipe1.html">Italiano Salad Mixed</a></h2>
-                        <ul class="item-rating">
-                            <li class="star-fill"><i class="fas fa-star"></i></li>
-                            <li class="star-fill"><i class="fas fa-star"></i></li>
-                            <li class="star-fill"><i class="fas fa-star"></i></li>
-                            <li class="star-fill"><i class="fas fa-star"></i></li>
-                            <li class="star-empty"><i class="fas fa-star"></i></li>
-                            <li><span>9<span> / 10</span></span> </li>
-                        </ul>
-                        <p>More off this less hello salamander lied porpoise much over tightly circa
-                            outside crud mightily rigorouse. </p>
-                        <ul class="entry-meta">
-                            <li><a href="#"><i class="fas fa-clock"></i>15 Mins</a></li>
-                            <li><a href="#"><i class="fas fa-user"></i>by <span>John Martin</span></a></li>
-                            <li><a href="#"><i class="fas fa-heart"></i><span>02</span> Likes</a></li>
-                        </ul>
-                    </div>
-                </div>
-              </div>
-              <div class="owl-item cloned" style="width: 1170px; margin-right: 5px;"><div class="ranna-slider-content-layout1">
-                    <figure class="item-figure"><a href="single-recipe1.html"><img src="img/slider/slide1-1.jpg" alt="Product"></a></figure>
-                    <div class="item-content">
-                        <span class="sub-title">SALAD</span>
-                        <h2 class="item-title"><a href="single-recipe1.html">Italiano Salad Mixed</a></h2>
-                        <ul class="item-rating">
-                            <li class="star-fill"><i class="fas fa-star"></i></li>
-                            <li class="star-fill"><i class="fas fa-star"></i></li>
-                            <li class="star-fill"><i class="fas fa-star"></i></li>
-                            <li class="star-fill"><i class="fas fa-star"></i></li>
-                            <li class="star-empty"><i class="fas fa-star"></i></li>
-                            <li><span>9<span> / 10</span></span> </li>
-                        </ul>
-                        <p>More off this less hello salamander lied porpoise much over tightly circa
-                            outside crud mightily rigorouse. </p>
-                        <ul class="entry-meta">
-                            <li><a href="#"><i class="fas fa-clock"></i>15 Mins</a></li>
-                            <li><a href="#"><i class="fas fa-user"></i>by <span>John Martin</span></a></li>
-                            <li><a href="#"><i class="fas fa-heart"></i><span>02</span> Likes</a></li>
-                        </ul>
-                    </div>
-                </div>
-              </div>
-              <div class="owl-item cloned" style="width: 1170px; margin-right: 5px;"><div class="ranna-slider-content-layout1">
-                    <figure class="item-figure"><a href="single-recipe1.html"><img src="img/slider/slide1-2.jpg" alt="Product"></a></figure>
-                    <div class="item-content">
-                        <span class="sub-title">SALAD</span>
-                        <h2 class="item-title"><a href="single-recipe1.html">Italiano Salad Mixed</a></h2>
-                        <ul class="item-rating">
-                            <li class="star-fill"><i class="fas fa-star"></i></li>
-                            <li class="star-fill"><i class="fas fa-star"></i></li>
-                            <li class="star-fill"><i class="fas fa-star"></i></li>
-                            <li class="star-fill"><i class="fas fa-star"></i></li>
-                            <li class="star-empty"><i class="fas fa-star"></i></li>
-                            <li><span>9<span> / 10</span></span> </li>
-                        </ul>
-                        <p>More off this less hello salamander lied porpoise much over tightly circa
-                            outside crud mightily rigorouse. </p>
-                        <ul class="entry-meta">
-                            <li><a href="#"><i class="fas fa-clock"></i>15 Mins</a></li>
-                            <li><a href="#"><i class="fas fa-user"></i>by <span>John Martin</span></a></li>
-                            <li><a href="#"><i class="fas fa-heart"></i><span>02</span> Likes</a></li>
-                        </ul>
-                    </div>
-                </div>
-              </div>
+    <div class="input-group">
+        
+        <input type="text" class="form-control" placeholder="Recipe Search . . .">
+        <div class="btn-group">
+            <div class="input-group-btn adv-search-fill-btn">
+                <button type="button" id="adv-serch" class="btn-adv-search">
+                    <i class="icon-plus fa fa-plus"></i>
+                    <i class="icon-minus fa fa-minus"></i>
+                    Advanced Search
+                </button>
             </div>
-          </div>
-              <div class="owl-nav"><button type="button" role="presentation" class="owl-prev"><i class="flaticon-back" aria-hidden="true"></i></button><button type="button" role="presentation" class="owl-next"><i class="flaticon-next" aria-hidden="true"></i></button></div><div class="owl-dots disabled"></div></div>
+            <div class="input-group-btn">
+                <button type="submit" class="btn-search"><i class="fa fa-search"></i></button>
+            </div>
         </div>
-      </section>    
-      
-      
+    
+    
+    </div>
 
-      <!-- shop details  -->
+    <div id="demo" class="collapse" >
+      <div class="row">
+          <div class="col-lg-6">
+              <h3 class="item-title">BY CATEGORIES</h3>
+              <ul class="search-items">
+                  <li>
+                      <div class="checkbox checkbox-primary">
+                          <input id="checkbox101" type="checkbox">
+                          <label for="checkbox101">Baking</label>
+                      </div>
+                  </li>
+                  <li>
+                      <div class="checkbox checkbox-primary">
+                          <input id="checkbox102" type="checkbox">
+                          <label for="checkbox102">Dinner</label>
+                      </div>
+                  </li>
+                  <li>
+                      <div class="checkbox checkbox-primary">
+                          <input id="checkbox103" type="checkbox">
+                          <label for="checkbox103">Lunch</label>
+                      </div>
+                  </li>
+                  <li>
+                      <div class="checkbox checkbox-primary">
+                          <input id="checkbox104" type="checkbox">
+                          <label for="checkbox104">Sea Food</label>
+                      </div>
+                  </li>
+                  <li>
+                      <div class="checkbox checkbox-primary">
+                          <input id="checkbox105" type="checkbox">
+                          <label for="checkbox105">Sweets</label>
+                      </div>
+                  </li>
+              </ul>
+          </div>
+          <div class="col-lg-6">
+              <h3 class="item-title">BY INGREDIENTS</h3>
+              <ul class="search-items">
+                  <li>
+                      <div class="checkbox checkbox-primary">
+                          <input id="checkbox106" type="checkbox">
+                          <label for="checkbox106">Oil</label>
+                      </div>
+                  </li>
+                  <li>
+                      <div class="checkbox checkbox-primary">
+                          <input id="checkbox107" type="checkbox">
+                          <label for="checkbox107">Vegitables</label>
+                      </div>
+                  </li>
+                  <li>
+                      <div class="checkbox checkbox-primary">
+                          <input id="checkbox108" type="checkbox">
+                          <label for="checkbox108">Fish</label>
+                      </div>
+                  </li>
+                  <li>
+                      <div class="checkbox checkbox-primary">
+                          <input id="checkbox109" type="checkbox">
+                          <label for="checkbox109">White Salt</label>
+                      </div>
+                  </li>
+                  <li>
+                      <div class="checkbox checkbox-primary">
+                          <input id="checkbox110" type="checkbox">
+                          <label for="checkbox110">Pizza
 
+                          </label>
+                      </div>
+                  </li>
+                  <li>
+                      <div class="checkbox checkbox-primary">
+                          <input id="checkbox111" type="checkbox">
+                          <label for="checkbox111">Meat</label>
+                      </div>
+                  </li>
+                  <li>
+                      <div class="checkbox checkbox-primary">
+                          <input id="checkbox112" type="checkbox">
+                          <label for="checkbox112">Juice</label>
+                      </div>
+                  </li>
+              </ul>
+          </div>
+      </div>
+      <div class="row">
+          <div class="col-lg-6">
+              <h3 class="item-title">BY CUISINE</h3>
+              <ul class="search-items">
+                  <li>
+                      <div class="checkbox checkbox-primary">
+                          <input id="checkbox113" type="checkbox">
+                          <label for="checkbox113">Indian</label>
+                      </div>
+                  </li>
+                  <li>
+                      <div class="checkbox checkbox-primary">
+                          <input id="checkbox114" type="checkbox">
+                          <label for="checkbox114">Italian</label>
+                      </div>
+                  </li>
+                  <li>
+                      <div class="checkbox checkbox-primary">
+                          <input id="checkbox115" type="checkbox">
+                          <label for="checkbox115">Maxican</label>
+                      </div>
+                  </li>
+                  <li>
+                      <div class="checkbox checkbox-primary">
+                          <input id="checkbox116" type="checkbox">
+                          <label for="checkbox116">Bengali</label>
+                      </div>
+                  </li>
+                  <li>
+                      <div class="checkbox checkbox-primary">
+                          <input id="checkbox117" type="checkbox">
+                          <label for="checkbox117">Franch</label>
+                      </div>
+                  </li>
+              </ul>
+          </div>
+          <div class="col-lg-6">
+              <h3 class="item-title">BY METHOD</h3>
+              <ul class="search-items">
+                  <li>
+                      <div class="checkbox checkbox-primary">
+                          <input id="checkbox118" type="checkbox">
+                          <label for="checkbox118">Baking</label>
+                      </div>
+                  </li>
+                  <li>
+                      <div class="checkbox checkbox-primary">
+                          <input id="checkbox119" type="checkbox">
+                          <label for="checkbox119">Freezing</label>
+                      </div>
+                  </li>
+                  <li>
+                      <div class="checkbox checkbox-primary">
+                          <input id="checkbox120" type="checkbox">
+                          <label for="checkbox120">Frying</label>
+                      </div>
+                  </li>
+                  <li>
+                      <div class="checkbox checkbox-primary">
+                          <input id="checkbox121" type="checkbox">
+                          <label for="checkbox121">Grilling</label>
+                      </div>
+                  </li>
+              </ul>
+          </div>
+      </div>
+    </div>
 
-      {% extends 'ecstasy/frontend/layouts/master.html' %}
+  </form>
+  
+  
+</div>
 
 
 {% load static %}
