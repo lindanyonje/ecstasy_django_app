@@ -6,7 +6,9 @@
 {% block content %}
     <div class="row">
         {% for recipe in category_recipes %}
+
             {% include 'ecstasy/frontend/layouts/single_recipe.html' %}
+            
         {% endfor %}
     </div>
 {% endblock %}
