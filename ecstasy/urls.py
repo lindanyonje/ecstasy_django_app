@@ -20,6 +20,8 @@ urlpatterns=[
     path('recipes/details/<id>', views.singleRecipe, name="recipe_details"),
     path('all_recipes/', views.getRecipe, name="all_recipes"),
 
+    path('search/', views.SearchResult.as_view(), name="search_product"),
+
     path('category/details/<id>', views.getCategoryRecipes, name="get_category_recipes"),
 
 

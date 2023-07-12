@@ -5,8 +5,8 @@
 
 {% block content %}
 
-<section class="recipe-without-sidebar-wrap padding-top-80 padding-bottom-22">
-    <div class="container mt-5">
+<section class="recipe-without-sidebar-wrap padding-top-80 padding-bottom-22" >
+    <div class="container mt-5"  >
         
         <div class="adv-search-wrap">
 
@@ -185,13 +185,13 @@
           </div>
           
         </div>
-        <div class="row">
+        <div class="row" style="text-align:center;">
 
-          {% for recipe in recipe %}
+            {% for recipe in recipe %}
+            
+                  {% include 'ecstasy/frontend/layouts/single_recipe.html' %}
 
-             {% include 'ecstasy/frontend/layouts/single_recipe.html' %}
-             
-          {% endfor %}
+            {% endfor %}
           
         </div>
     </div>

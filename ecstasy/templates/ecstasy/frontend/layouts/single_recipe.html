@@ -1,7 +1,7 @@
 
 {% load static %}
 
-<a href= "{% url 'recipe_details' recipe.id %}" style="text-decoration: none;">
+<a href= "{% url 'recipe_details' recipe.id %}" style="text-decoration: none; ">
     <!-- <div class="product-card bg-light text-dark">
 		<div class="product-badge">Hot</div>
 		<div class="product-tumb">
@@ -39,12 +39,14 @@
 		
 	</div> -->
 
-	<div class="col-lg-4 col-md-6 col-sm-6 col-12">
+	<div class="col-lg-4 col-md-6 col-sm-6 col-12" style="text-align: center;">
+		<div class="product-badge">{{recipe.category.name}}</div>
 		<div class="product-box-layout1">
 			<figure class="item-figure"><a href="#"><img src="https://radiustheme.com/demo/html/ranna/ranna/img/product/product39.jpg" alt="Product"></a></figure>
+			<!-- <figure class="item-figure"><a href="#"><img src="{{recipe.image.url}}" alt="Product"></a></figure> -->
 			<div class="item-content">
 				<span class="sub-title">{{ recipe.category.name }}</span>
-				<h3 class="item-title"><a href="#">{{ recipe.name }}</a>
+				<h3 class="item-title"><a href="{% url 'recipe_details' recipe.id %}">{{ recipe.name }}</a>
 				</h3>
 				<form id="" action="" method="POST">
 
@@ -77,8 +79,7 @@
 				</form>
   
   
-				<p>{{ recipe.description }}
-				</p>
+				<p style=" text-align:center;">{{ recipe.description|truncatewords:20 }}</p>
 
 
 				<ul class="entry-meta" id="stats">

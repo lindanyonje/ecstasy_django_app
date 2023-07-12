@@ -25,6 +25,7 @@ from django.urls import reverse
 from django.views.generic import FormView
 from django.views.generic import TemplateView
 from django.dispatch import receiver
+from django.db.models import Q
 
 # Create your views here.
 
@@ -579,6 +580,23 @@ def getCategoryRecipes(request,id):
    }
 
    return render(request, "ecstasy/frontend/category_recipes.html", context)
+
+# search product
+
+class SearchResult(ListView):
+    model = Recipe
+    template_name = 'ecstasy/frontend/layouts/search_results.html'
+
+    def get_queryset(self):
+        query =self.request.GET.get('search_data')
+        object_list = Recipe.objects.filter(Q(name__icontains=query))
+        # object_list = Recipe.objects.filter(
+        #     Q(name__icontains=query | Q(state__icontains=query))
+            
+        # )
+        return object_list
+
+
 
 class CategoryList(ListView):
     

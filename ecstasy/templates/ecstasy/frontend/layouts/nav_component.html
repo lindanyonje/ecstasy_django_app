@@ -7,13 +7,13 @@
         <div class="logo"><p><span>Kitchen</span>Ecstasy</p></div>
         <div class="search_bar">
             
-            <form class="mobile_search hidden-sm hidden-md hidden-lg" role="search" action="/" method="GET">
-            <div class="input-group">
-            <input type="text" class="form-control" placeholder="Search"/>
-            <span class="input-group-btn">
-                <button class="btn btn-secondary" type="button"><i class="fa fa-search"></i></button>
-            </span>
-            </div>
+            <form class="mobile_search hidden-sm hidden-md hidden-lg" role="search" action="{% url 'search_product' %}" method="GET">
+                <div class="input-group">
+                <input type="text" class="form-control" name="search_data" placeholder="Search"/>
+                <span class="input-group-btn">
+                    <button class="btn btn-secondary" type="submit"><i class="fa fa-search"></i></button>
+                </span>
+                </div>
             </form>
 
         </div>
