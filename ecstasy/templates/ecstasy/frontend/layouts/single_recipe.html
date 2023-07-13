@@ -1,6 +1,13 @@
 
 {% load static %}
 
+
+
+
+
+{% block content %}
+
+
 <a href= "{% url 'recipe_details' recipe.id %}" style="text-decoration: none; ">
     <!-- <div class="product-card bg-light text-dark">
 		<div class="product-badge">Hot</div>
@@ -39,14 +46,14 @@
 		
 	</div> -->
 
-	<div class="col-lg-4 col-md-6 col-sm-6 col-12" style="text-align: center;">
-		<div class="product-badge">{{recipe.category.name}}</div>
+	<div class="col-lg-4 col-md-6 col-sm-6 col-12 "   style="text-align: center;">
+		<div class="product-badge">{{recipe.category.title}}</div>
 		<div class="product-box-layout1">
 			<figure class="item-figure"><a href="#"><img src="https://radiustheme.com/demo/html/ranna/ranna/img/product/product39.jpg" alt="Product"></a></figure>
 			<!-- <figure class="item-figure"><a href="#"><img src="{{recipe.image.url}}" alt="Product"></a></figure> -->
-			<div class="item-content">
+			<div class="item-content recipe-card">
 				<span class="sub-title">{{ recipe.category.name }}</span>
-				<h3 class="item-title"><a href="{% url 'recipe_details' recipe.id %}">{{ recipe.name }}</a>
+				<h3 class="item-title"><a href="{% url 'recipe_details' recipe.id %}">{{ recipe.title }}</a>
 				</h3>
 				<form id="" action="" method="POST">
 
@@ -79,8 +86,26 @@
 				</form>
   
   
-				<p style=" text-align:center;">{{ recipe.description|truncatewords:20 }}</p>
+				<!-- <p style=" text-align:center;">{{ recipe.description|truncatewords:20 }}</p> -->
+				<div  style="text-align: center;">
+					
+					<img class="recipe-image" src="{{recipeImage}}" alt="{{recipeTitle}}">
+					<p class="recipe-description">{{ recipe.description|truncatewords:20 }}</p>
+					<h3>Ingredients:</h3>
+					<ul class="recipe-ingredients">
+						
+							<li>{{this}}</li>
+						
+					</ul>
+					<h3>Instructions:</h3>
+					<ol class="recipe-instructions recipe-description">
+					
+							<li>{{recipe.description|truncatewords:20}}</li>
+						
+					</ol>
+				</div>
 
+				
 
 				<ul class="entry-meta" id="stats">
 				<li>
@@ -108,9 +133,11 @@
 		</div>
 	</div>
 
-
 </a>
 
+{% endblock %}
+
+{% block 'scripts' %}
 
 <script>
 
@@ -129,3 +156,6 @@
 </script>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+
+{% endblock 'scripts' %}

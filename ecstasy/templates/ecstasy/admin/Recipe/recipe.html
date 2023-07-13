@@ -38,6 +38,7 @@
 
                                 <th>Category</th>
                                 <th>Description</th>
+                                <th>Ingredients</th>
                                 <th>Image</th>
                                 <th>Rating</th>
                                 <th>Created_at</th>
@@ -59,8 +60,22 @@
                             <tr>
 
                                 <td>{{recipe.category}}</td>
+                                <td>
+                                    <ul>
+                                       {% for ingredient in recipe.get_ingredients_list %}
+                                         <li>{{ recipe.ingredients }}</li>
+                                       {% endfor %}
+                                    </ul>
+                                    
+                                </td>
+                                
                                 <td>{{recipe.description}}</td>
                                 <td><img src="{{recipe.image.url}}" height="50" width="50" class="img-fluid rounded"></td>
+                                <div class="rate">            
+                                    {% for star in review.getRatingRange %}
+                                      <i class="fa fa-star"></i>
+                                      {% endfor %}
+                                  </div>
                                 <td>{{recipe.rating}}</td>
                                 <td>{{recipe.created_at}}</td>
 
