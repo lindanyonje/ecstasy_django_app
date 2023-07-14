@@ -55,35 +55,34 @@
 				<span class="sub-title">{{ recipe.category.name }}</span>
 				<h3 class="item-title"><a href="{% url 'recipe_details' recipe.id %}">{{ recipe.title }}</a>
 				</h3>
-				<form id="" action="" method="POST">
+				
+				<form id="reviewForm" action="{% url 'create.review' %}" method="POST">
 
-		  
-					{% csrf_token %}
-	
-				   
-					<!-- Rating Stars Box -->
-				   
-					<div class='rating-stars text-center' required>
-					  <ul id='stars'>
-						<li class='star' title='Poor' data-value='1'>
-						  <i class='fa fa-star fa-fw'></i>
-						</li>
-						<li class='star' title='Fair' data-value='2'>
-						  <i class='fa fa-star fa-fw'></i>
-						</li>
-						<li class='star' title='Good' data-value='3'>
-						  <i class='fa fa-star fa-fw'></i>
-						</li>
-						<li class='star' title='Excellent' data-value='4'>
-						  <i class='fa fa-star fa-fw'></i>
-						</li>
-						<li class='star' title='WOW!!!' data-value='5'>
-						  <i class='fa fa-star fa-fw'></i>
-						</li>
-					  </ul>
-					</div>
-	
-				</form>
+                  
+                    {% csrf_token %}
+
+                   
+                    <!-- Rating Stars Box -->
+                    <div class='rating-stars text-center' required>
+                      <ul id='stars'>
+                        <li class='star' title='Poor' data-value='1'>
+                          <i class='fa fa-star fa-fw'></i>
+                        </li>
+                        <li class='star' title='Fair' data-value='2'>
+                          <i class='fa fa-star fa-fw'></i>
+                        </li>
+                        <li class='star' title='Good' data-value='3'>
+                          <i class='fa fa-star fa-fw'></i>
+                        </li>
+                        <li class='star' title='Excellent' data-value='4'>
+                          <i class='fa fa-star fa-fw'></i>
+                        </li>
+                        <li class='star' title='WOW!!!' data-value='5'>
+                          <i class='fa fa-star fa-fw'></i>
+                        </li>
+                      </ul>
+                    </div>        
+                </form>
   
   
 				<!-- <p style=" text-align:center;">{{ recipe.description|truncatewords:20 }}</p> -->
@@ -154,6 +153,60 @@
     });
 
 </script>
+
+<script>
+	$(document).ready(function() {
+
+	  $('#reviewForm').on('submit', function(e){
+		e.preventDefault();
+  
+		var ratingInput = $('#ratingInput').val();
+		var formData = $(this).serialize();
+		var url = $(this).attr('action');
+  
+		var ratingErrorMessage = $('#rating-error-message');
+		var ratingSuccessMessage = $('#rating-success-message');
+  
+		
+		if(!ratingInput){
+		  ratingErrorMessage.html("Kindly leave your rating");
+		}
+		else{
+		  ratingErrorMessage.html("");
+  
+		}
+		
+  
+		$.ajax({
+			data:formData,
+			type:'POST',
+			dataType:'json',
+			url:url,
+			success: function(response){
+			  if(response.success){
+				ratingSuccessMessage.html(response.message);
+				setTimeout(function(){
+				  window.location.reload();
+				}, 1500);  
+			  }
+			  else{
+				console.log(response.message);
+			  }
+			},
+			error: function(error){
+			  console.log(error);
+			  alert("Your review could not be recorded, please ensure you entered a rating");
+			}
+		});
+  
+		
+	  });
+  
+	  
+	});
+  
+
+  </script>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 

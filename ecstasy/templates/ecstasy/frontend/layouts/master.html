@@ -21,6 +21,7 @@
   <link rel="stylesheet" type="text/css" href="{% static 'css/cart.css' %}">
   <link rel="stylesheet" type="text/css" href="{% static 'css/shop.css' %}">
   <link rel="stylesheet" type="text/css" href="{% static 'css/recipe.css' %}">
+  <link rel="stylesheet" type="text/css" href="{% static 'css/singlelayout.css' %}">
   <link rel="stylesheet" type="text/css" href="{% static 'css/notiflix.css' %}">
   <link rel="stylesheet" href="owlcarousel/owl.carousel.min.css">
   <link rel="stylesheet" href="owlcarousel/owl.theme.default.min.css">
@@ -226,6 +227,26 @@
   });
 
 </script>
+
+<script>
+  $(document).ready(function() {
+  $(window).scroll(function() {
+  if ($(this).scrollTop() > 20) {
+  $('#toTopBtn').fadeIn();
+  } else {
+  $('#toTopBtn').fadeOut();
+  }
+  });
+
+  $('#toTopBtn').click(function() {
+  $("html, body").animate({
+  scrollTop: 0
+  }, 1000);
+  return false;
+  });
+  });
+</script>
+
 
 <script>
   $(document).ready(function() {

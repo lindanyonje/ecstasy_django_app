@@ -23,22 +23,24 @@
                     <div class="section-heading heading-dark">
                         <h2 class="item-heading">QUICK CONTACT ME</h2>
                     </div>
-                    <form class="about-contact-form">
+                    <form class="about-contact-form" action="{% url 'create.inquiry' %}" method="post" >
+                        {% csrf_token %}
                         <div class="row">
                             <div class="col-md-4 form-group">
-                                <input type="text" placeholder="Name *" class="form-control" name="name" data-error="Name field is required" required="">
+                                <input required type="text" id="fname" name="firstname" class="form-control" required="" placeholder="Your name..">
                                 <div class="help-block with-errors"></div>
                             </div>
                             <div class="col-md-4 form-group">
-                                <input type="email" placeholder="E-mail *" class="form-control" name="email" data-error="E-mail field is required" required="">
+                                <input required type="email" name="email" class="form-control" id="email" placeholder="email">
                                 <div class="help-block with-errors"></div>
                             </div>
                             <div class="col-md-4 form-group">
-                                <input type="text" placeholder="Phone *" class="form-control" name="phone" data-error="Subject field is required" required="">
+                                <input type="number" id="lname" name="phone_number" class="form-control"  placeholder="Your phone number..">
                                 <div class="help-block with-errors"></div>
                             </div>
                             <div class="col-12 form-group">
-                                <textarea placeholder="Message" class="textarea form-control" name="message" id="form-message" rows="7" cols="20" data-error="Message field is required" required=""></textarea>
+                                <textarea required id="subject" name="subject" placeholder="Message" class="textarea form-control"  rows="7" cols="20" data-error="Message field is required" required=""></textarea>
+
                                 <div class="help-block with-errors"></div>
                             </div>
                             <div class="col-12 form-group mb-0 mt-3">

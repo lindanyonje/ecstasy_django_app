@@ -1,0 +1,163 @@
+{% extends 'ecstasy/frontend/layouts/master.html' %}
+
+
+{% load static %}
+
+{% block 'styles' %}
+
+<link href="{% static 'css/notiflix.css' %}" rel="stylesheet">
+
+{% endblock %}
+
+
+{% block css %}
+
+<style>
+	.recipe-card {
+		width: 400px;
+		border: 1px solid #ccc;
+		border-radius: 4px;
+		padding: 20px;
+		margin-bottom: 20px;
+	}
+
+	.recipe-title {
+		font-size: 20px;
+		font-weight: bold;
+		margin-bottom: 10px;
+	}
+
+	.recipe-image {
+		width: 100%;
+		max-height: 200px;
+		object-fit: cover;
+		border-radius: 4px;
+		margin-bottom: 10px;
+	}
+
+	.recipe-description {
+		font-size: 14px;
+		color: #666;
+		margin-bottom: 10px;
+	}
+
+	.recipe-ingredients {
+		margin-bottom: 10px;
+	}
+
+	.recipe-instructions {
+		font-size: 14px;
+		margin-bottom: 10px;
+	}
+</style>
+
+{% endblock css %}
+
+
+{% block content %}
+
+<div class="container">
+
+  
+
+   <div class="col-lg-4 col-md-6 col-sm-6 col-12" id="recipes-container"  style="text-align: center;" >
+		<div class="product-box-layout1" >
+			<figure class="item-figure"><a href="#"><img src="https://radiustheme.com/demo/html/ranna/ranna/img/product/product39.jpg" alt="Product"></a></figure>
+			<div class="item-content ">
+				<span class="sub-title">{{ recipe.category.name }}</span>
+				<h3 class="item-title"><a href="#">{{ recipe.name }}</a></h3>
+
+				<form id="reviewForm" action="{% url 'create.review' %}" method="POST">
+
+                  
+                    {% csrf_token %}
+
+                   
+                    <!-- Rating Stars Box -->
+                    <div class='rating-stars text-center' required>
+                      <ul id='stars'>
+                        <li class='star' title='Poor' data-value='1'>
+                          <i class='fa fa-star fa-fw'></i>
+                        </li>
+                        <li class='star' title='Fair' data-value='2'>
+                          <i class='fa fa-star fa-fw'></i>
+                        </li>
+                        <li class='star' title='Good' data-value='3'>
+                          <i class='fa fa-star fa-fw'></i>
+                        </li>
+                        <li class='star' title='Excellent' data-value='4'>
+                          <i class='fa fa-star fa-fw'></i>
+                        </li>
+                        <li class='star' title='WOW!!!' data-value='5'>
+                          <i class='fa fa-star fa-fw'></i>
+                        </li>
+                      </ul>
+                    </div>        
+                </form>
+  
+				<div class="recipe-card" style="text-align: center;">
+					
+					<img class="recipe-image" src="{{recipeImage}}" alt="{{recipeTitle}}">
+					<p class="recipe-description">{{ recipe.description|truncatewords:20 }}</p>
+					<h3>Ingredients:</h3>
+					<ul class="recipe-ingredients">
+
+							{% for ingredients in recipe.get_ingredients_list %}
+									<li>{{ ingredients }}</li>
+							{% endfor %}
+						
+					</ul>
+					<h3>Instructions:</h3>
+					<ol class="recipe-instructions recipe-description">
+					
+							<li>{{recipe.description|truncatewords:20}}</li>
+						
+					</ol>
+				</div>
+
+
+
+				<ul class="entry-meta" id="stats">
+				<li>
+					<a href="">
+					<i class="fa fa-clock-o" aria-hidden="true"></i>
+	
+					"15 Mins"
+					</a>
+				</li>
+				<li>
+					<a href="">
+					<i class="fa fa-user" aria-hidden="true"></i>
+					by
+					<span>Linda Nyonje</span>
+					</a>
+				</li>
+				<li>
+					<a href="">
+					<i class="fa fa-heart-o" aria-hidden="true"></i>
+					<span>02</span>
+					</a>
+				</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+
+
+</div>
+
+
+
+
+
+
+{% endblock %}
+
+{% block 'scripts' %}
+
+<script src="{% static 'js/notiflix.js' %}"></script>
+
+
+{% endblock %}
+
+
