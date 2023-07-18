@@ -1,6 +1,5 @@
 {% extends 'ecstasy/frontend/layouts/master.html' %}
 
-
 {% load static %}
 
 {% block 'styles' %}
@@ -13,7 +12,6 @@
 {% block css %}
 
 
-
 {% endblock css %}
 
 
@@ -24,8 +22,8 @@
 		<div class="row gutters-60">
 			<div class="col-lg-8">
 				<div class="single-recipe-layout1">
-					<div class="ctg-name">PASTA</div>
-					<h2 class="item-title">Chanterelle and Porcini Mushroom Recipes</h2>
+					<div class="ctg-name">{{recipe.category.name}}</div>
+					<h2 class="item-title">{{ recipe.title }}</h2>
 					<div class="row mb-4">
 						<div class="col-xl-9 col-12">
 							<ul class="entry-meta">
@@ -64,8 +62,8 @@
 							</ul>
 						</div>
 					</div>
-					<div class="item-figure">
-						<img src="img/product/single-product1.jpg" alt="Product">
+					<div class="item-figure recipe-card">
+						<img class="recipe-image" src="{{recipeImage}}" alt="{{recipeTitle}}">
 					</div>
 					<div class="item-feature">
 						<ul>
@@ -123,19 +121,7 @@
 							</li>
 						</ul>
 					</div>
-					<p class="item-description">More off this less hello salamander lied porpoise much over
-						tightly circa horse taped so
-						innocuously side crudey mightily rigorous plot life. New homes in particular are
-						subject.All recipes created with FoodiePress have suport for Micoformats and Google
-						Recipe View. Schema.org is a collaboration byo improve the web by creatinegaera
-						structured data markup.More off this less hello salamander lied porpoise much over
-						tightly circa horse tapedey innocuously side crudey mightily rigorous plot life.</p>
-					<p class="item-description">Salamander lied porpoise much over tightly circa horse taped so
-						innocuously side crudey
-						mightily rigorous plot life. New homes in particular are subject.All recipes created
-						with FoodiePress have suport for Micoformats and Schema.org is a collaboration byo
-						improve.s convallis mi et tellus vehicula convallis. Etiam odio eros, viverra id dui
-						inrutrum cursus ex. Curabitur et consequatenim.</p>
+					<p class="recipe-description">{{ recipe.description|truncatewords:100 }}</p>
 					<div class="making-elements-wrap">
 						<div class="row">
 							<div class="col-xl-6 col-12">
@@ -159,28 +145,15 @@
 									</div>
 									<div class="checkbox checkbox-primary">
 										<input id="checkbox1" type="checkbox">
-										<label for="checkbox1">1 cup sifted all purpose flour</label>
+										
+										{% for ingredients in recipe.get_ingredients_list %}
+
+										    <label for="checkbox1"> <li>{{ ingredients }}</li>  </label>
+									        
+							            {% endfor %}
+						
 									</div>
-									<div class="checkbox checkbox-primary">
-										<input id="checkbox2" type="checkbox">
-										<label for="checkbox2">4 cup roasted macadamia nuts</label>
-									</div>
-									<div class="checkbox checkbox-primary">
-										<input id="checkbox3" type="checkbox">
-										<label for="checkbox3">4 large eggs</label>
-									</div>
-									<div class="checkbox checkbox-primary">
-										<input id="checkbox4" type="checkbox">
-										<label for="checkbox4">4 cup roasted macadamia nuts</label>
-									</div>
-									<div class="checkbox checkbox-primary">
-										<input id="checkbox5" type="checkbox">
-										<label for="checkbox5">5 cup sifted all purpose flour</label>
-									</div>
-									<div class="checkbox checkbox-primary">
-										<input id="checkbox6" type="checkbox">
-										<label for="checkbox6">8 cup roasted macadamia nuts</label>
-									</div>
+									
 								</div>
 							</div>
 							<div class="col-xl-6 col-12">
@@ -326,31 +299,22 @@
 					</div>  
 					<div class="recipe-author">
 						<div class="media media-none--xs">
-							<img src="img/blog/author9.jpg" alt="Blog Author" class="rounded-circle media-img-auto">
-							<div class="media-body">
+							<div class="row">
+								<div class="col-lg-6">
+									<img src="img/blog/author9.jpg" alt="Blog Author" class="rounded-circle media-img-auto">
+								</div>
+								
+							<div class="col-lg-6 media-body">
 								<h4 class="author-title">Michel Jack</h4>
 								<h5 class="author-sub-title">Written by</h5>
 								<p>I love cooking and blogging. Using a fork, break salmon. Halve reserved 
 										potatoes and eggs crosswise. The of something of did require met of
-										help have someone.</p>
-								<ul class="author-social">
-									<li>
-										<a href="#"><i class="fab fa-facebook-f"></i></a>
-									</li>
-									<li>
-										<a href="#"><i class="fab fa-twitter"></i></a>
-									</li>
-									<li>
-										<a href="#"><i class="fab fa-linkedin-in"></i></a>
-									</li>
-									<li>
-										<a href="#"><i class="fab fa-pinterest-p"></i></a>
-									</li>
-									<li>
-										<a href="#"><i class="fab fa-skype"></i></a>
-									</li>
-								</ul>
+										help have someone.
+								</p>
+							
 							</div>
+							</div>
+							
 						</div>
 					</div>            
 					<div class="also-like-wrap">
@@ -396,108 +360,85 @@
 							</div>
 						</div>             
 					</div>
-					<div class="recipe-reviews">
-						<div class="section-heading heading-dark">
-							<h2 class="item-heading">RECIPE REVIEWS</h2>
-						</div>
-						<div class="avarage-rating-wrap">
-							<div class="avarage-rating">Avarage Rating: 
-								<span class="rating-icon-wrap">
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star"></i>
-								</span>
-								<span class="rating-number">(5)</span>                                        
-							</div>
-							<div class="total-reviews">Total Reviews:<span class="review-number">(02)</span></div>
-						</div>
-						<ul>
-							<li class="reviews-single-item">
-								<div class="media media-none--xs">
-									<img src="img/blog/comment1.jpg" alt="Comment" class="media-img-auto">
-									<div class="media-body">
-										<h4 class="comment-title">Liza Zaman</h4>
-										<span class="post-date">September 27, 2018</span>
-										<p>Absolutely great recipe. I cooked it for my kids and they loved it, even 
-												asked for more, can you believe it?</p>
-										<ul class="item-rating">
-											<li class="single-item star-fill"><i class="fas fa-star"></i></li>
-											<li class="single-item star-fill"><i class="fas fa-star"></i></li>
-											<li class="single-item star-fill"><i class="fas fa-star"></i></li>
-											<li class="single-item star-fill"><i class="fas fa-star"></i></li>
-											<li class="single-item star-empty"><i class="fas fa-star"></i></li>
-											<li class="single-item"><span>9<span> / 10</span></span> </li>
-										</ul>
-										<a href="#" class="item-btn">REPLY<i class="fas fa-long-arrow-alt-right"></i></a>
-									</div>
-								</div>
-							</li>
-							<li class="reviews-single-item">
-								<div class="media media-none--xs">
-									<img src="img/blog/comment2.jpg" alt="Comment" class="media-img-auto">
-									<div class="media-body">
-										<h4 class="comment-title">John Martin</h4>
-										<span class="post-date">September 12, 2018</span>
-										<p>Absolutely great recipe. I cooked it for my kids and they loved it, even 
-												asked for more, can you believe it?</p>
-										<ul class="item-rating">
-											<li class="single-item star-fill"><i class="fas fa-star"></i></li>
-											<li class="single-item star-fill"><i class="fas fa-star"></i></li>
-											<li class="single-item star-fill"><i class="fas fa-star"></i></li>
-											<li class="single-item star-fill"><i class="fas fa-star"></i></li>
-											<li class="single-item star-empty"><i class="fas fa-star"></i></li>
-											<li class="single-item"><span>7<span> / 10</span></span> </li>
-										</ul>
-										<a href="#" class="item-btn">REPLY<i class="fas fa-long-arrow-alt-right"></i></a>
-									</div>
-								</div>
-							</li>
-						</ul>
-					</div>
+					
 					<div class="leave-review">
-						<div class="section-heading heading-dark">
-							<h2 class="item-heading">LEAVE A REVIEW</h2>
-						</div>
-						<div class="rate-wrapper">
-							<div class="rate-label">Rating</div>
-							<div class="rate">
-								<div class="rate-item"><i class="fa fa-star" aria-hidden="true"></i></div>
-								<div class="rate-item"><i class="fa fa-star" aria-hidden="true"></i></div>
-								<div class="rate-item"><i class="fa fa-star" aria-hidden="true"></i></div>
-								<div class="rate-item"><i class="fa fa-star" aria-hidden="true"></i></div>
-								<div class="rate-item"><i class="fa fa-star" aria-hidden="true"></i></div>
+						<div class="recipe-reviews">
+							<div class="section-heading heading-dark">
+								<h2 class="item-heading">RECIPE REVIEWS</h2>
 							</div>
-						</div>
-						<form class="leave-form-box">
-							<div class="row">
-								<div class="col-12 form-group">
-									<label>Comment :</label>
-									<textarea placeholder="" class="textarea form-control" name="message" rows="7" cols="20" data-error="Message field is required" required=""></textarea>
-									<div class="help-block with-errors"></div>
+							<div class="avarage-rating-wrap">
+								<div class="avarage-rating">Avarage Rating: 
+									<span class="rating-icon-wrap">
+										<i class="fa fa-star"></i>
+										<i class="fa fa-star"></i>
+										<i class="fa fa-star"></i>
+										<i class="fa fa-star"></i>
+										<i class="fa fa-star"></i>
+									</span>
+									<span class="rating-number">(5)</span>                                        
 								</div>
-								<div class="col-lg-4 form-group">
-									<label>Name :</label>
-									<input type="text" placeholder="" class="form-control" name="name" data-error="Name field is required" required="">
-									<div class="help-block with-errors"></div>
-								</div>
-								<div class="col-lg-4 form-group">
-									<label>E-mail :</label>
-									<input type="email" placeholder="" class="form-control" name="email" data-error="E-mail field is required" required="">
-									<div class="help-block with-errors"></div>
-								</div>
-								<div class="col-lg-4 form-group">
-									<label>Website :</label>
-									<input type="email" placeholder="" class="form-control" name="email" data-error="E-mail field is required" required="">
-									<div class="help-block with-errors"></div>
-								</div>
-								<div class="col-12 form-group mb-0">
-									<button type="submit" class="item-btn">POST REVIEW</button>
+								<div class="total-reviews">Total Reviews:<span class="review-number">(02)</span></div>
+								
+							</div>
+							<div class="rate-wrapper">
+								<div class="rate-label">Rate us</div>
+								<div class="rate">
+									<div class="rate-item"><i class="fa fa-star" aria-hidden="true"></i></div>
+									<div class="rate-item"><i class="fa fa-star" aria-hidden="true"></i></div>
+									<div class="rate-item"><i class="fa fa-star" aria-hidden="true"></i></div>
+									<div class="rate-item"><i class="fa fa-star" aria-hidden="true"></i></div>
+									<div class="rate-item"><i class="fa fa-star" aria-hidden="true"></i></div>
 								</div>
 							</div>
-							<div class="form-response"></div>
-						</form>
+
+							<form class="leave-form-box" action="{% url 'create.inquiry' %}" method="post">
+
+								{% csrf_token %}
+	
+								<div class="row">
+	
+									
+				
+					
+									<div class=" col-lg-4 form-group">
+										<label for="fname">Full Name</label>
+										<input required type="text" id="fname" name="firstname" class="form-control"  placeholder="Your name..">
+										<div class="help-block with-errors"></div>
+									</div>
+					
+									<div class="col-lg-4 form-group">
+										<label for="lname">Phone Number</label>
+										<input type="number" id="lname" name="phone_number" class="form-control"  placeholder="Your phone number..">
+										<div class="help-block with-errors"></div>
+									</div>
+					
+									<div class="col-lg-4 form-group">
+										<label for="email">Email address:</label>
+										<input required type="email" name="email" class="form-control" id="email" placeholder="email">
+										<div class="help-block with-errors"></div>
+									</div>
+					
+									<div class=" col-12 form-group">
+					
+										<label for="subject">Subject</label>
+										<textarea required id="subject" name="subject" placeholder="Message" class="form-control"  style="height:200px"></textarea>
+										<div class="help-block with-errors"></div>
+					
+									</div>
+	
+									<div class="col-12 form-group mb-0">
+										<button type="submit" class="item-btn">POST REVIEW</button>
+									</div>
+	
+									<div class="form-response"></div>
+								
+								</div>
+								
+							</form>
+							
+						</div>
+
+						
 					</div>
 				</div>
 			</div>
@@ -606,37 +547,37 @@
 						<ul>
 							<li>
 								<a href="#">BreakFast
-									<span>25</span>
+									<span class="sub-title"> {{ category.getNumberOfRecipes }} Recipes</span>
 								</a>
 							</li>
 							<li>
 								<a href="#">Lunch
-									<span>15</span>
+									<span class="sub-title"> {{ category.getNumberOfRecipes }} Recipes</span>
 								</a>
 							</li>
 							<li>
 								<a href="#">Pasta
-									<span>22</span>
+									<span class="sub-title"> {{ category.getNumberOfRecipes }} Recipes</span>
 								</a>
 							</li>
 							<li>
 								<a href="#">Dinner
-									<span>18</span>
+									<span class="sub-title"> {{ category.getNumberOfRecipes }} Recipes</span>
 								</a>
 							</li>
 							<li>
 								<a href="#">Dessert
-									<span>36</span>
+									<span class="sub-title"> {{ category.getNumberOfRecipes }} Recipes</span>
 								</a>
 							</li>
 							<li>
 								<a href="#">Drinks
-									<span>12</span>
+									<span class="sub-title"> {{ category.getNumberOfRecipes }} Recipes</span>
 								</a>
 							</li>
 							<li>
 								<a href="#">Fruits
-									<span>05</span>
+									<span class="sub-title"> {{ category.getNumberOfRecipes }} Recipes</span>
 								</a>
 							</li>
 						</ul>
