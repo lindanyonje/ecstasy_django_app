@@ -121,6 +121,7 @@
 							</li>
 						</ul>
 					</div>
+					<div class="h2">Description</div>
 					<p class="recipe-description">{{ recipe.description|truncatewords:100 }}</p>
 					<div class="making-elements-wrap">
 						<div class="row">
@@ -146,9 +147,9 @@
 									<div class="checkbox checkbox-primary">
 										<input id="checkbox1" type="checkbox">
 										
-										{% for ingredients in recipe.get_ingredients_list %}
+										{% for ingridients in recipe.get_ingridients_list %}
 
-										    <label for="checkbox1"> <li>{{ ingredients }}</li>  </label>
+										    <label for="checkbox1"> <li>{{ ingridients }}</li>  </label>
 									        
 							            {% endfor %}
 						
@@ -195,58 +196,24 @@
 						<div class="section-heading heading-dark">
 							<h2 class="item-heading">DIRECTIONS</h2>
 						</div>
-						<p class="section-paragraph">Salamander lied porpoise much over tightly circa horse
-							taped so innocuously side crudey mightily rigorous plot life. New homes in
-							particular are subject. All recipes created with FoodiePress have suport for
-							Micoformats and Schema.org is a collaboration byo improve convallis.</p>
 						<div class="direction-box-layout1">
-							<div class="item-figure">
-								<img src="img/figure/direction1.jpg" alt="DIRECTIONS">
-							</div>
+							
 							<div class="item-content">
-								<div class="serial-number">01 Step</div>
-								<p>Recipe View<span class="item-time"><i class="far fa-clock"></i>5 Minutes</span> chemaorg is a
-									collaboration improve
-									the web by creat inegaera structured markupinn ocuously
-									side crudey mightily rigorous plot life.</p>
+
+									<ol style="list-style-type: circle;">
+
+
+										{% for instructions in recipe.get_instructions_list %}
+
+										 <li >{{ instructions }}</li> 
+										
+									    {% endfor %}
+									
+									</ol>
+								
 							</div>
 						</div>
-						<div class="direction-box-layout1">
-							<div class="item-figure">
-								<img src="img/figure/direction2.jpg" alt="DIRECTIONS">
-							</div>
-							<div class="item-content">
-								<div class="serial-number">02 Step</div>
-								<p>Recipe View<span class="item-time"><i class="far fa-clock"></i>5 Minutes</span> chemaorg is a
-									collaboration improve
-									the web by creat inegaera structured markupinn ocuously
-									side crudey mightily rigorous plot life.</p>
-							</div>
-						</div>
-						<div class="direction-box-layout1">
-							<div class="item-figure">
-								<img src="img/figure/direction3.jpg" alt="DIRECTIONS">
-							</div>
-							<div class="item-content">
-								<div class="serial-number">03 Step</div>
-								<p>Recipe View<span class="item-time"><i class="far fa-clock"></i>5 Minutes</span> chemaorg is a
-									collaboration improve
-									the web by creat inegaera structured markupinn ocuously
-									side crudey mightily rigorous plot life.</p>
-							</div>
-						</div>
-						<div class="direction-box-layout1">
-							<div class="item-figure">
-								<img src="img/figure/direction4.jpg" alt="DIRECTIONS">
-							</div>
-							<div class="item-content">
-								<div class="serial-number">04 Step</div>
-								<p>Recipe View<span class="item-time"><i class="far fa-clock"></i>5 Minutes</span> chemaorg is a
-									collaboration improve
-									the web by creat inegaera structured markupinn ocuously
-									side crudey mightily rigorous plot life.</p>
-							</div>
-						</div>
+					
 					</div>
 					<div class="tag-share">
 						<ul>

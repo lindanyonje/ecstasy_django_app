@@ -89,22 +89,9 @@
 				<div  style="text-align: center;">
 					
 					<img class="recipe-image" src="{{recipeImage}}" alt="{{recipeTitle}}">
+					<h3>Description</h3>
 					<p class="recipe-description">{{ recipe.description|truncatewords:20 }}</p>
-					<h3>Ingredients:</h3>
-					<ul class="recipe-ingredients">
-						
-							<li>{{this}}</li>
-						
-					</ul>
-					<h3>Instructions:</h3>
-					<ol class="recipe-instructions recipe-description">
-					
-							<li>{{recipe.description|truncatewords:20}}</li>
-						
-					</ol>
-				</div>
-
-				
+				</div>			
 
 				<ul class="entry-meta" id="stats">
 				<li>

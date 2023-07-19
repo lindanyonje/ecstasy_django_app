@@ -66,9 +66,10 @@ class Recipe(models.Model):
   
     parent_category = models.ForeignKey(Category, null=True, blank=False, on_delete=models.SET_NULL)
     title=models.CharField(max_length=100, null=True, blank=False)
-    description=models.TextField(null=False, blank=False)
     image=models.FileField(upload_to='images')
-    ingredients = models.TextField(null=False, blank=False,default='SOME STRING')
+    description=models.TextField(null=False, blank=False)
+    ingridients = models.TextField(null=False, blank=False,default='SOME STRING')
+    instructions = models.TextField(null=False, blank=False,default='SOME STRING')
     rating = models.IntegerField(null= True, blank= True)
     created_at=models.DateTimeField(auto_now_add=True)
     updated_at= models.DateTimeField(auto_now=True)
@@ -77,8 +78,11 @@ class Recipe(models.Model):
     def __str__(self):
         return self.title
     
-    def get_ingredients_list(self):
-        return self.ingredients.split('\n')
+    def get_ingridients_list(self):
+        return self.ingridients.split('\n')
+    
+    def get_instructions_list(self):
+        return self.instructions.split('\n')
 
 
 class Order(models.Model):
