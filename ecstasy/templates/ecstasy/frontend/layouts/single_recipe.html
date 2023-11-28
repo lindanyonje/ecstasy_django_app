@@ -1,94 +1,52 @@
-
 {% load static %}
-
-
-
-
 
 {% block content %}
 
 
 <a href= "{% url 'recipe_details' recipe.id %}" style="text-decoration: none; ">
-    <!-- <div class="product-card bg-light text-dark">
-		<div class="product-badge">Hot</div>
-		<div class="product-tumb">
-			<img src="{{recipe.image.url}}" alt="">
-		</div>
-		<div class="product-details ">
-			<span class="product-category">{{recipe.category_id}}</span>
-			<h4 class="text-dark"><a href= "{% url 'recipe_details' recipe.id %}"  >{{recipe.name}}</a></h4>
-			<p class="text-dark">{{recipe.description|truncatewords:10}}</p>
-			<div class="product-bottom-details ">
-				
-				<p>
-					{% for index in rating %}
-		
-					★
-		
-					{% endfor %}
-		
-				 </p>
-
-				<div class="product-price">Kshs {{recipe.cost}}</div>
-				
-				<div class="customer-feedback">{{customer.feedback}}</div>
-				
-				<div class="product-links">
-
-					<a href="javascript:void(0)" data-product="{{product.id}}" class="addWishlist"><i class="fa fa-heart"></i></a>
-					<a href="javascript:void(0)" data-product="{{product.id}}" class="addCart"><i class="fa fa-shopping-cart"></i></a>
-					
-				</div>
-
-			</div>
-
-		</div>
-		
-	</div> -->
+    
 
 	<div class="col-lg-4 col-md-6 col-sm-6 col-12 "   style="text-align: center;">
 		<div class="product-badge">{{recipe.category.title}}</div>
 		<div class="product-box-layout1">
-			<figure class="item-figure"><a href="#"><img src="https://radiustheme.com/demo/html/ranna/ranna/img/product/product39.jpg" alt="Product"></a></figure>
-			<!-- <figure class="item-figure"><a href="#"><img src="{{recipe.image.url}}" alt="Product"></a></figure> -->
+			
 			<div class="item-content recipe-card">
+
 				<span class="sub-title">{{ recipe.category.name }}</span>
-				<h3 class="item-title"><a href="{% url 'recipe_details' recipe.id %}">{{ recipe.title }}</a>
-				</h3>
 				
-				<form id="reviewForm" action="{% url 'create.review' %}" method="POST">
-
-                  
-                    {% csrf_token %}
-
-                   
-                    <!-- Rating Stars Box -->
-                    <div class='rating-stars text-center' required>
-                      <ul id='stars'>
-                        <li class='star' title='Poor' data-value='1'>
-                          <i class='fa fa-star fa-fw'></i>
-                        </li>
-                        <li class='star' title='Fair' data-value='2'>
-                          <i class='fa fa-star fa-fw'></i>
-                        </li>
-                        <li class='star' title='Good' data-value='3'>
-                          <i class='fa fa-star fa-fw'></i>
-                        </li>
-                        <li class='star' title='Excellent' data-value='4'>
-                          <i class='fa fa-star fa-fw'></i>
-                        </li>
-                        <li class='star' title='WOW!!!' data-value='5'>
-                          <i class='fa fa-star fa-fw'></i>
-                        </li>
-                      </ul>
-                    </div>        
-                </form>
-  
-  
 				<!-- <p style=" text-align:center;">{{ recipe.description|truncatewords:20 }}</p> -->
 				<div  style="text-align: center;">
+
 					
-					<img class="recipe-image" src="{{recipeImage}}" alt="{{recipeTitle}}">
+					<img class="recipe-image" src="{{recipe.image.url}}" alt="{{recipeTitle}}">
+					<h3 class="item-title"><a href="{% url 'recipe_details' recipe.id %}">{{ recipe.title }}</a>
+					</h3>
+					
+					<form id="reviewForm" action="{% url 'create.review' %}" method="POST">
+	
+						{% csrf_token %}
+	
+						<!-- Rating Stars Box -->
+						<div class='rating-stars text-center' required>
+						  <ul id='stars'>
+							<li class='star' title='Poor' data-value='1'>
+							  <i class='fa fa-star fa-fw'></i>
+							</li>
+							<li class='star' title='Fair' data-value='2'>
+							  <i class='fa fa-star fa-fw'></i>
+							</li>
+							<li class='star' title='Good' data-value='3'>
+							  <i class='fa fa-star fa-fw'></i>
+							</li>
+							<li class='star' title='Excellent' data-value='4'>
+							  <i class='fa fa-star fa-fw'></i>
+							</li>
+							<li class='star' title='WOW!!!' data-value='5'>
+							  <i class='fa fa-star fa-fw'></i>
+							</li>
+						  </ul>
+						</div>        
+					</form>
 					<h3>Description</h3>
 					<p class="recipe-description">{{ recipe.description|truncatewords:20 }}</p>
 				</div>			

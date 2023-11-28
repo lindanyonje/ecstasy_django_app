@@ -1,0 +1,69 @@
+{% load static %}
+
+{% block content %}
+
+
+<a href= "{% url 'recipe_details' recipe.id %}" style="text-decoration: none; ">
+    
+
+	<div class="widget">
+        <div class="section-heading heading-dark">
+            <h3 class="item-heading">LATEST RECIPES</h3>
+        </div>
+        <div class="widget-latest">
+            <ul class="block-list">
+                <li class="single-item">
+                    <div class="item-img">
+                        <a href="#"><img src="{{recipe.image.url}}" alt="Post"></a>
+                        <div class="count-number">1</div>
+                    </div>
+                    <div class="item-content">
+                       <div class="item-ctg">DESSERT</div>
+                        <h4 class="item-title"><a href="#">Salami Oven Roasted are Mozzarella Oelette</a></h4>
+                        <div class="item-post-date"><a href="#"><i class="fa fa-clock-o" aria-hidden="true"></i> 15 Dec,2018</a></div>
+            
+                    </div>
+                </li>
+                <li class="single-item">
+                    <div class="item-img">
+                        <a href="#"><img src="https://radiustheme.com/demo/html/ranna/ranna/img/product/latest2.jpg" alt="Post"></a>
+                        <div class="count-number">2</div>
+                    </div>
+                    <div class="item-content">
+                        <div class="item-ctg">DESSERT</div>
+                        <h4 class="item-title"><a href="#">Salami Oven Roasted are Mozzarella Oelette</a></h4>
+                        <div class="item-post-date"><a href="#"><i class="fa fa-clock-o" aria-hidden="true"></i> 15 Dec,2018</a></div>
+                    </div>
+                </li>
+                
+            </ul>
+        </div>
+    </div>
+
+</a>
+
+{% endblock %}
+
+{% block 'scripts' %}
+
+<script>
+
+    $(".rating").on('click', function(e){
+    let value = $(this).data('value');
+    $.ajax({
+        url: "rating",
+        type: 'POST',
+        data: {'rating': value},
+        success: function (d){
+        // some processing
+        }
+    })
+    });
+
+</script>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+
+{% endblock 'scripts' %}

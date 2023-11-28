@@ -1,23 +1,43 @@
 {% extends 'ecstasy/frontend/layouts/master.html' %}
 
-{% load static %}
+ {% load static %}
 
-{% block content %}
+ {% block content %}
 
-<h1>Search results</h1>
+    <h1>Search results</h1>
 
-<div class="row">
+   
+      
+          <div class="product-box-layout1" style="justify-content: center;">
+            <div class="item-content recipe-card col-12 " style="justify-content: center;">
+                {% for recipe in object_list %}
 
-    {% for recipe in object_list %}
+                    
+                      {% include 'ecstasy/frontend/layouts/single_recipe.html' %}
+                    
 
-       <div class="col-lg-4">
-
-         {% include 'ecstasy/frontend/layouts/single_recipe.html' %}
-
-       </div>
-
-    {% endfor %}
-
-  </div>
+                {% endfor %}
+            </div>
+          </div>
+      
+   
 
 {% endblock %}
+<form role="search" action="{% url 'search_recipe' %}" method="GET">
+  <div class="input-group-btn adv-search-fill-btn">
+      <input type="text" class="form-control" name="search_data" placeholder="Advanced Search"/>
+      <div class="input-group-btn">
+          <button type="submit" class="btn-adv-search"  id="adv-serch" data-toggle="collapse"data-target="#demo" >Advanced search</button>
+      </div>
+  
+  </div>
+</form> 
+<!-- <form role="search" action="{% url 'search_recipe' %}" method="GET">
+  <div class="input-group">
+      <input type="text" class="form-control" name="search_data" placeholder="Search"/>
+      <div class="input-group-btn">
+          <button type="submit" class="btn-search"><i class="fa fa-search"></i></button>
+      </div>
+  
+  </div>
+</form>  -->

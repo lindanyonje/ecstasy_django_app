@@ -587,16 +587,26 @@ class SearchResult(ListView):
     model = Recipe
     template_name = 'ecstasy/frontend/layouts/search_results.html'
 
-    def get_queryset(self):
-        query =self.request.GET.get('search_data')
-        object_list = Recipe.objects.filter(Q(name__icontains=query))
-        # object_list = Recipe.objects.filter(
-        #     Q(name__icontains=query | Q(state__icontains=query))
+  
+
+   #  def get_queryset(self):
+   #      query =self.request.GET.get('search_data')
+   #      print('Query:', query)
+   #      object_list = Recipe.objects.filter(Q(title__icontains=query))
+   #      # object_list = Recipe.objects.filter(
+   #      #     Q(name__icontains=query | Q(state__icontains=query))
             
-        # )
-        return object_list
+   #      # )
+   #      return object_list
 
-
+    def get_queryset(self):
+         query = self.request.GET.get('search_data')
+         print('Query:', query)
+         if query:
+            object_list = Recipe.objects.filter(Q(title__icontains=query))
+         else:
+            object_list = Recipe.objects.all()
+         return object_list
 
 class CategoryList(ListView):
     
@@ -862,21 +872,6 @@ def cartToWishlist(request):
     data ={}
 
     return JsonResponse(data)
-
-
-
-class SearchResult(ListView):
-    model = Product
-    template_name = 'ecstasy/frontend/layouts/search_results.html'
-
-    def get_queryset(self):
-        query =self.request.GET.get('search_data')
-        object_list = Product.objects.filter(Q(name__icontains=query))
-        # object_list = Product.objects.filter(
-        #     Q(name__icontains=query | Q(state__icontains=query))
-            
-        # )
-        return object_list
 
 
 def ordercomplete(request, id):
