@@ -9,7 +9,7 @@
    
       
           <div class="product-box-layout1" style="justify-content: center;">
-            <div class="item-content recipe-card col-12 " style="justify-content: center;">
+            <div class="item-content recipe-card  col-12 " style="justify-content: center;">
                 {% for recipe in object_list %}
 
                     
@@ -23,7 +23,7 @@
    
 
 {% endblock %}
-<form role="search" action="{% url 'search_recipe' %}" method="GET">
+<!-- <form role="search" action="{% url 'search_recipe' %}" method="GET">
   <div class="input-group-btn adv-search-fill-btn">
       <input type="text" class="form-control" name="search_data" placeholder="Advanced Search"/>
       <div class="input-group-btn">
@@ -31,7 +31,7 @@
       </div>
   
   </div>
-</form> 
+</form>  -->
 <!-- <form role="search" action="{% url 'search_recipe' %}" method="GET">
   <div class="input-group">
       <input type="text" class="form-control" name="search_data" placeholder="Search"/>
