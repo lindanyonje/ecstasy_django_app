@@ -9,14 +9,8 @@
     <div class="container mt-5"  >
         
         <div class="adv-search-wrap">
-
-
           <div class="input-group">
-        
-            
-            <div class="btn-group">
-                
-                
+            <div class="btn-group">        
                 <form role="search" action="{% url 'search_recipe' %}" method="GET" id="advanced-search-form">
                         <div class="input-group ">
                             <input type="text" class="form-control" name="search_data" id="main-search" placeholder="Recipe Search . . ."/>
@@ -184,13 +178,11 @@
                                 </div>
                             </div>
                         </div>
-                </form> 
-               
+                </form>   
             </div>
           </div>
-         
-          
         </div>
+
         <div class="row" style="text-align:center;">
 
             {% for recipe in recipe %}
